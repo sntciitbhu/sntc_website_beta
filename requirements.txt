@@ -102,7 +102,7 @@ psycopg2==2.8.4
 ptyprocess==0.5
 pyasn1==0.4.7
 pyasn1-modules==0.2.7
-pycryptodome==3.4.3
+pycryptodome==3.6.6
 pycups==1.9.73
 pycurl==7.43.0
 Pygments==2.1
