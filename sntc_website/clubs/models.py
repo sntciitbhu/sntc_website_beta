@@ -8,6 +8,7 @@ class aero_head(models.Model):
     club_id = models.CharField(max_length=50, default = 'null')
     about = models.TextField()
     tagline = models.CharField(max_length=100, default = 'null')
+    quote = models.CharField(max_length=100, default = 'null')
     logo_img = models.ImageField(upload_to='upload/img/aero', default = 'null')
     facebook = models.URLField(max_length=500, default= 'null')
     twitter = models.URLField(max_length=500, default= 'null')

@@ -16,6 +16,7 @@ def aero(request):
 from .models import astro_head,astro_about_image, astro_highlight,astro_workshop,astro_event
 
 def astro(request):
+  
   key = "astro"
   timenow = timezone.now()
   return render(request, 'clubs/club_page.html', {'about':astro_head.objects.all(),'about_images':astro_about_image.objects.all(),'highlights':astro_highlight.objects.all(),'workshops':astro_workshop.objects.order_by('-date'),'events':astro_event.objects.order_by('-date'),'timenow':timenow,'key':key})
