@@ -1,7 +1,4 @@
 from django.contrib import admin
-from .models import aero_head,aero_about_image, aero_highlight,aero_workshop,aero_event,aero_calendar,astro_head,astro_highlight,astro_workshop,astro_event,astro_calendar,biz_head,biz_highlight,biz_workshop,biz_event,biz_calendar,cops_head,cops_highlight,cops_workshop,cops_event,cops_calendar,csi_head,csi_highlight,csi_workshop,csi_event,csi_calendar,robo_head,robo_highlight,robo_workshop,robo_event,robo_calendar,sae_head,sae_highlight,sae_workshop,sae_event,sae_calendar
-
-
 from tinymce.widgets import TinyMCE
 from django.db import models
 
@@ -11,50 +8,66 @@ class head_text(admin.ModelAdmin):
         models.TextField: {'widget': TinyMCE()},
         }
 
-admin.site.register(aero_about_image)
+    
+    
+    
+    
+from .models import aero_head,aero_about_image, aero_highlight,aero_workshop,aero_event
+
+admin.site.register(aero_about_image,head_text)
 admin.site.register(aero_head,head_text)
-admin.site.register(aero_highlight)
-admin.site.register(aero_workshop)
-admin.site.register(aero_event)
-admin.site.register(aero_calendar)
+admin.site.register(aero_highlight,head_text)
+admin.site.register(aero_workshop,head_text)
+admin.site.register(aero_event,head_text)
 
-admin.site.register(astro_head)
-admin.site.register(astro_highlight)
-admin.site.register(astro_workshop)
-admin.site.register(astro_event)
-admin.site.register(astro_calendar)
+from .models import astro_head,astro_about_image, astro_highlight,astro_workshop,astro_event
 
-admin.site.register(biz_head)
-admin.site.register(biz_highlight)
-admin.site.register(biz_workshop)
-admin.site.register(biz_event)
-admin.site.register(biz_calendar)
+admin.site.register(astro_about_image,head_text)
+admin.site.register(astro_head,head_text)
+admin.site.register(astro_highlight,head_text)
+admin.site.register(astro_workshop,head_text)
+admin.site.register(astro_event,head_text)
 
-admin.site.register(cops_head)
-admin.site.register(cops_highlight)
-admin.site.register(cops_workshop)
-admin.site.register(cops_event)
-admin.site.register(cops_calendar)
+from .models import biz_head,biz_about_image, biz_highlight,biz_workshop,biz_event
 
-admin.site.register(csi_head)
-admin.site.register(csi_highlight)
-admin.site.register(csi_workshop)
-admin.site.register(csi_event)
-admin.site.register(csi_calendar)
+admin.site.register(biz_about_image,head_text)
+admin.site.register(biz_head,head_text)
+admin.site.register(biz_highlight,head_text)
+admin.site.register(biz_workshop,head_text)
+admin.site.register(biz_event,head_text)
 
-admin.site.register(robo_head)
-admin.site.register(robo_highlight)
-admin.site.register(robo_workshop)
-admin.site.register(robo_event)
-admin.site.register(robo_calendar)
+from .models import csi_head,csi_about_image, csi_highlight,csi_workshop,csi_event
 
-admin.site.register(sae_head)
-admin.site.register(sae_highlight)
-admin.site.register(sae_workshop)
-admin.site.register(sae_event)
-admin.site.register(sae_calendar)
+admin.site.register(csi_about_image,head_text)
+admin.site.register(csi_head,head_text)
+admin.site.register(csi_highlight,head_text)
+admin.site.register(csi_workshop,head_text)
+admin.site.register(csi_event,head_text)
 
 
+from .models import cops_head,cops_about_image, cops_highlight,cops_workshop,cops_event
+
+admin.site.register(cops_about_image,head_text)
+admin.site.register(cops_head,head_text)
+admin.site.register(cops_highlight,head_text)
+admin.site.register(cops_workshop,head_text)
+admin.site.register(cops_event,head_text)
+
+from .models import robo_head,robo_about_image, robo_highlight,robo_workshop,robo_event
+
+admin.site.register(robo_about_image,head_text)
+admin.site.register(robo_head,head_text)
+admin.site.register(robo_highlight,head_text)
+admin.site.register(robo_workshop,head_text)
+admin.site.register(robo_event,head_text)
+
+from .models import sae_head,sae_about_image, sae_highlight,sae_workshop,sae_event
+
+admin.site.register(sae_about_image,head_text)
+admin.site.register(sae_head,head_text)
+admin.site.register(sae_highlight,head_text)
+admin.site.register(sae_workshop,head_text)
+admin.site.register(sae_event,head_text)
 
 
 # Register your models here.

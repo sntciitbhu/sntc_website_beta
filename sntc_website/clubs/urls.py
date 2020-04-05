@@ -21,6 +21,12 @@ app_name = 'clubs'
 
 urlpatterns = [
     path("aero/", views.aero, name = 'Aero-Modelling Club'),
+    path("astro/", views.astro, name = 'Astronomy Club'),
+    path("biz/", views.biz, name = 'Business Club'),
+    path("csi/", views.csi, name = 'Club of Sustainibility and Innovation'),
+    path("cops/", views.cops, name = 'Club of Programmers'),
+    path("robo/", views.robo, name = 'Robotics Club'),
+    path("sae/", views.sae, name = 'Society of Automotive Engineers'),
+
     path('admin/', admin.site.urls),
-    
 ]
