@@ -613,7 +613,7 @@ section {
 # Featured
 --------------------------------------------------------------*/
 .featured {
-  padding: 20 0 0 0;
+  padding: 20px 0 0 0;
   background-color: #030e16;
 }
 

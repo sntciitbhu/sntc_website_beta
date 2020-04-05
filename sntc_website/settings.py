@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
@@ -26,9 +28,9 @@ MEDIA_URL = '/upload/'
 SECRET_KEY = 'c)&$8^n0^0tpw+d7sl0&$b168plomh0d)dgpww6yzlcx8#w@j6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.43.28' ,'0.0.0.0','192.168.225.129','127.0.0.1']
+ALLOWED_HOSTS = [''0.0.0.0',127.0.0.1','herokuapp.com']
 
 
 # Application definition
@@ -109,10 +111,18 @@ WSGI_APPLICATION = 'sntc_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sntc_website',
+        'USER': 'name',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+  
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
