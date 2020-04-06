@@ -31,6 +31,7 @@
   <!-- Template Main CSS File -->
   <link href=" {%  static "clubs/assets/css/style.css" %}" rel="stylesheet">
 
+
   <!-- =======================================================
   * Template Name: Knight - v2.0.0
   * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
@@ -99,10 +100,13 @@
   </header><!-- End Header -->
 
 
+
   <main id="main">
 
 
     <!-- ======= About Us Section ======= -->
+
+
 
     <section id="about" class="about">
       <div class="container">
@@ -149,7 +153,7 @@
 
     <!-- ======= Highlights Section ======= -->
 
-    <section id="testimonials" class="testimonials" style="background-image: url('{% static '/clubs/img/'|add:key|add:'/testimonials-bg.jpg' %}')" >
+    <section id="testimonials" class="testimonials" style="background-image: url('{% static '/clubs/img/'|add:key|add:'/testimonials-bg.jpg' %}')">
       <div class="container" data-aos="zoom-in">
         <div class="section-title" data-aos="fade-up">
           <h2>Explore</h2>
@@ -157,7 +161,7 @@
 
         <div class="row quote-icon">
           <i class="bx bxs-quote-left"></i>
-                    {% for club in about %}
+          {% for club in about %}
 
           <h3>{{club.quote}}</h3>
           {%endfor%}

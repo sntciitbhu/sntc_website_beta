@@ -1,0 +1,132 @@
+.mediaViewInfo {
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920___1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Web_1920___1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Web_1920___1 {
+	position: absolute;
+	width: 5434px;
+	height: 2956px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920___1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+#Rectangle_1_h {
+	filter: blur(0px);
+}
+.Rectangle_1_h {
+	filter: drop-shadow(0px 3px 6px rgba(100, 29, 29, 0.161));
+	width: 2956px;
+	height: 5434px;
+	position: absolute;
+	overflow: visible;
+	transform: matrix(1,0,0,1,1239,-1238.9998) rotate(-90deg);
+	transform-origin: center;
+}
+#brain {
+	position: absolute;
+	width: 1676px;
+	height: 992px;
+	left: 3758px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_2 {
+	position: absolute;
+	overflow: visible;
+	width: 1401px;
+	height: 274px;
+	left: 3349px;
+	top: 1777px;
+}
+#START__NOW {
+	position: absolute;
+	left: 3631px;
+	top: 1829px;
+	overflow: visible;
+	width: 794px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Bauhaus 93;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 150px;
+	color: rgba(8,8,8,1);
+}
+#wall_e {
+	opacity: 0.44;
+	position: absolute;
+	width: 2496px;
+	height: 1664px;
+	left: 0px;
+	top: 1292px;
+	overflow: visible;
+}
+#Rectangle_3_n {
+	opacity: 0.45;
+}
+.Rectangle_3_n {
+	width: 1664px;
+	height: 3205px;
+	position: absolute;
+	overflow: visible;
+	transform: matrix(1,0,0,1,770.5,521.5) rotate(-90deg);
+	transform-origin: center;
+}
+.Rectangle_4 {
+	position: absolute;
+	overflow: visible;
+	width: 4268px;
+	height: 705px;
+	left: 84px;
+	top: 650px;
+}
+#TECHNEX__2020 {
+	position: absolute;
+	left: 177px;
+	top: 650px;
+	overflow: visible;
+	width: 4027px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Bauhaus 93;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 600px;
+	color: rgba(8,8,8,1);
+}
+.Rectangle_5 {
+	position: absolute;
+	overflow: visible;
+	width: 1636px;
+	height: 320px;
+	left: 301px;
+	top: 330px;
+}
+#IIT__VARANASI {
+	position: absolute;
+	left: 380px;
+	top: 367px;
+	overflow: visible;
+	width: 1478px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Bauhaus 93;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 250px;
+	color: rgba(5,184,252,1);
+}
