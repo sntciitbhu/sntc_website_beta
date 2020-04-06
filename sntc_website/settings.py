@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import dj_database_url
 
+from django.core.wsgi import get_wsgi_application
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,17 +28,19 @@ MEDIA_URL = '/upload/'
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c)&$8^n0^0tpw+d7sl0&$b168plomh0d)dgpww6yzlcx8#w@j6'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','herokuapp.com','localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'clubs.apps.ClubsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,6 +82,7 @@ TINYMCE_DEFAULT_CONFIG = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,6 +90,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'sntc_website.urls'
 
@@ -112,9 +119,9 @@ WSGI_APPLICATION = 'sntc_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sntc_website',
-        'USER': 'name',
-        'PASSWORD': '',
+        'NAME': 'sntciitbhu',
+        'USER': 'amrtanshu',
+        'PASSWORD': 'sntc123',
         'HOST': 'localhost',
         'PORT': '',
   
