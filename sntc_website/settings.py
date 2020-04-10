@@ -42,7 +42,9 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
-    'clubs.apps.ClubsConfig',
+    'apps.clubs.apps.ClubsConfig',
+    'apps.main.apps.MainConfig',
+    'apps.tac.apps.TacConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,17 +69,12 @@ TINYMCE_DEFAULT_CONFIG = {
             anchor pagebreak
             ''',
     'toolbar1': '''
-            fullscreen preview bold italic underline | fontselect,
-            fontsizeselect  | forecolor backcolor | alignleft alignright |
-            aligncenter alignjustify | indent outdent | bullist numlist table |
+            fullscreen preview bold italic underline | fontsizeselect | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist |
             | link image media | codesample |
             ''',
-    'toolbar2': '''
-            visualblocks visualchars |
-            charmap hr pagebreak nonbreaking anchor |  code |
-            ''',
     'contextmenu': 'formats | link image',
-    'menubar': True,
+    'menubar': False,
     'statusbar': True,
     }
 

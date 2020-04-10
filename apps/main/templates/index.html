@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Example page</title>
+  <meta charset="utf-8">
+  <link href=" {%  static "main/assets/css/fullpage.css" %}" rel="stylesheet">
+    <link href=" {%  static "main/assets/css/example.css" %}" rel="stylesheet">
+
+
+
+
+  <style>
+    h1 {
+      display: block;
+      font-size: 2em;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+      font-face: verdana;
+      color: blue;
+    }
+
+    .fp-controlArrow {
+      position: absolute;
+      z-index: 4;
+      top: 50%;
+      cursor: pointer;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      margin-top: -38px;
+    }
+
+    .fp-controlArrow.fp-prev {
+      left: 15px;
+      width: 0;
+      border-width: 38.5px 34px 38.5px 0;
+      border-color: transparent red transparent transparent;
+    }
+
+    .fp-controlArrow.fp-next {
+      right: 15px;
+      border-width: 38.5px 0 38.5px 34px;
+      border-color: transparent transparent transparent red;
+    }
+
+  </style>
+</head>
+
+<body class="lang-en tab-pips">
+  <article id="main">
+    <div class="section">
+      <div id="slide1" class="slide-wrapper current">
+        <h1 class="sansserif" align="center">Slide 1</h1>
+      </div>
+      <div id="slide2" class="slide-wrapper">
+        <h1 align="center">Slide 2</h2>
+      </div>
+      <div id="slide2" class="slide-wrapper">
+        <h1 align="center">Slide 3</h2>
+      </div>
+    </div>
+  </article>
+
+  <script src=" {% static "main/assets/js/fullpage.js" %}"></script>
+  <script src=" {% static "main/assets/js/example.js" %}"></script>
+
+
+  <script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+      sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+      anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+      menu: '#menu',
+
+      //equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
+      easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
+    });
+
+  </script>
+</body>
+
+</html>
