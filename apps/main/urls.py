@@ -21,5 +21,7 @@ app_name = 'main'
 
 urlpatterns = [
     path('', views.index, name = 'Home'),
+    path('login/', views.login, name = 'Login'),
+
     path('admin/', admin.site.urls),
 ]

@@ -12,3 +12,6 @@ def index(request):
   timenow = timezone.now()
   return render(request, 'index.html')
 
+def login(request):
+  key = "index"
+  return render(request, 'login.html')

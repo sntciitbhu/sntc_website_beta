@@ -126,6 +126,7 @@
   });
 
   // Porfolio isotope and filter
+  
   $(window).on('load', function() {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
@@ -146,7 +147,9 @@
       $('.venobox').venobox();
     });
   });
-
+ 
+  
+  
   // Testimonials carousel (uses the Owl Carousel library)
   $(".testimonials-carousel").owlCarousel({
     autoplay: false,
