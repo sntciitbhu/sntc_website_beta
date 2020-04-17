@@ -8,4 +8,5 @@ def technex(request):
         'workshops',
         "chota sa kelaidoscope"
     ]
+    return render(request, 'technex.html')
     return HttpResponse('hello')

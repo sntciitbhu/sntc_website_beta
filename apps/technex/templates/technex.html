@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .tilt-div{
+                background-color: blueviolet;
+                height: 200px;
+                width: 200px;
+                margin: 300px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <img data-tilt-speed="1000" class="tilt-div" src="{% static 'technex/images/technex.jpeg' %}" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{% static 'technex/js/tilt.js' %}"></script>
+        <script>
+            $('.tilt-div').tilt({
+                glare: true,
+                maxGlare: .5
+            })
+        </script>
+    </body>
+</html>

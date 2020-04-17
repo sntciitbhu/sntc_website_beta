@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class TechnexConfig(AppConfig):
-    name = 'technex'
+    name = 'apps.technex'
