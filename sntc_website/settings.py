@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG_PROPAGATE_EXCEPTIONS = True
+DEBUG_PROPAGATE_EXCEPTIONS = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.clubs.apps.ClubsConfig',
     'apps.main.apps.MainConfig',
     'apps.tac.apps.TacConfig',
+    'apps.technex.apps.TechnexConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
