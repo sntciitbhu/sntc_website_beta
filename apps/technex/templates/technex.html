@@ -2,23 +2,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .tilt-div{
-                background-color: blueviolet;
-                height: 200px;
-                width: 200px;
-                margin: 300px auto;
-            }
-        </style>
+        <title>Technex | SNTC IITBHU</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="theme-color" content="black" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'technex/css/technex.css' %}">
     </head>
     <body>
+        <canvas id="bgCanvas"></canvas>
+
+        <div class="section-default homepage-section">
+            <div class="circles-container">
+                <div data-tilt="" class="spinning-loader spin3 tilt-div"></div>
+                    <div class="spinning-loader spin1"></div>
+                    <div class="spinning-loader spin2"></div>
+                </div>
+            </div>
+        </div>
+
         <img data-tilt-speed="1000" class="tilt-div" src="{% static 'technex/images/technex.jpeg' %}" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{% static 'technex/js/index-bg.js' %}"></script>
         <script src="{% static 'technex/js/tilt.js' %}"></script>
         <script>
             $('.tilt-div').tilt({
-                glare: true,
-                maxGlare: .5
+                speed: 800,
+                scale: 1,
+                maxTilt: 5,
             })
         </script>
     </body>

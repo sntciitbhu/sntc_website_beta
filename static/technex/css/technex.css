@@ -1,0 +1,72 @@
+@keyframes rotate-s-loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+body, html {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+canvas {
+    position:absolute;
+    top:0;
+    left:0
+}
+
+.tilt-div{
+    
+}
+
+.section-default {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+}
+.spinning-loader {
+    width:40vw;
+    height: 40vw;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 6;
+  }
+
+  .spin1 {
+    animation-name: rotate-s-loader;
+    animation-iteration-count: infinite;
+    animation-duration: 35s;
+    animation-timing-function: linear;
+    border: 2px dotted rgb(99, 51, 51);
+    border-bottom: 3px solid rgb(204, 40, 40);
+    border-top: 3px solid rgb(204, 40, 40);
+    transform: translateZ(20px);
+    pointer-events: none;
+  }
+  .spin2 {
+      width: 38vw;
+      height: 38vw;
+      border: 2px solid rgb(110, 67, 67);
+        background-color: rgba(0, 0, 0, 0.555);
+        transform: translateZ(20px);
+        pointer-events: none;
+       
+  }
+  .spin3 {
+    width: 42vw;
+    height: 42vw;
+    border: 2px dotted rgb(99, 51, 51);
+    transform-style: preserve-3d !important;
+  }
