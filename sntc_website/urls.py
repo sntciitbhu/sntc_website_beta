@@ -25,8 +25,8 @@ urlpatterns = [
     path("clubs/", include('apps.clubs.urls')),
     path('admin/', admin.site.urls),
     path('tac/', include('apps.tac.urls')),
+    path('api-auth/',include('rest_framework.urls')),
     path('technex', include('apps.technex.urls')),
-
     path('tinymce/', include('tinymce.urls')),
     path('', include('apps.main.urls')),
 

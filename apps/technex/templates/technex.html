@@ -16,14 +16,30 @@
         <canvas id="bgCanvas"></canvas>
 
         <div class="section-default homepage-section">
+                <div class="row image-banner">
+                    <div class="col-xl-4 col-lg-6 col-md-10">
+                        <img src="{% static 'technex/images/technex2.png' %}" />
+                    </div>
+                </div>
                 <div data-tilt="" class="spinning-loader spin3 tilt-div">
                     <div class="spinning-loader spin1"></div>
                     <div class="spinning-loader spin2"></div>
                     <img src="{% static 'technex/images/technex.png' %}" />
                 </div>
+                <div class="homepage-scroll-button">
+                    <a href="#page2">
+                        <div>
+                            <img src="{% static 'technex/images/scroll.png' %}" />
+                        </div>
+                    </a>
+                </div>
         </div>
 
-        <img data-tilt-speed="1000" class="tilt-div" src="{% static 'technex/images/technex.jpeg' %}" />
+        <div class="section-default" id="page2">
+
+        </div>
+
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="{% static 'technex/js/index-bg.js' %}"></script>
         <script src="{% static 'technex/js/tilt.js' %}"></script>

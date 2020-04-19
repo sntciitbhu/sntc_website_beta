@@ -13,16 +13,12 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    scroll-behavior: smooth;
 }
 canvas {
   position:absolute;
   top:0;
   left:0
-}
-
-.tilt-div{
-    
 }
 
 .section-default {
@@ -31,6 +27,33 @@ canvas {
   width: 100%;
   min-height: 100%;
 }
+.image-banner {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+.image-banner div {
+  margin: auto;
+  text-align: center;
+}
+.image-banner img {
+  width: 90%;
+}
+.homepage-scroll-button {
+  position: absolute;
+  bottom: 20px;
+  width: 100vw;
+  z-index: 10;
+}
+.homepage-scroll-button div {
+  margin: auto;
+  text-align: center;
+}
+.homepage-scroll-button img {
+  width: 70px;
+}
+
 .spinning-loader {
   width: 55vh;
   height: 55vh;
