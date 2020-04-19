@@ -19,6 +19,7 @@ from . import views
 
 app_name = 'clubs'
 
+
 urlpatterns = [
     path("aero/", views.aero, name = 'Aero-Modelling Club'),
     path("astro/", views.astro, name = 'Astronomy Club'),

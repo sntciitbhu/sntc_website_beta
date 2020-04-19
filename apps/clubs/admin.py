@@ -2,72 +2,147 @@ from django.contrib import admin
 from tinymce.widgets import TinyMCE
 from django.db import models
 
-class head_text(admin.ModelAdmin):
+from .models import details,about_images,events,workshops,highlights
 
+class FilterDetails(admin.ModelAdmin): 
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'user', None) is None:  
+            obj.user = request.user
+            print("saved")
+        obj.save()
+
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return details.objects.all()
+        else:
+            return details.objects.filter(user=request.user)
+
+    def has_change_permission(self, request, obj=None):
+        if not obj:
+            return True 
+        return obj.user == request.user or request.user.is_superuser
+
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = []
+        if not request.user.is_superuser:
+            self.exclude.append('user') #here!
+        return super(FilterDetails, self).get_form(request, obj, **kwargs)
+    
     formfield_overrides = {
         models.TextField: {'widget': TinyMCE()},
         }
 
-    
-    
-    
-    
-from .models import aero_head,aero_about_image, aero_highlight,aero_workshop,aero_event
-
-admin.site.register(aero_about_image,head_text)
-admin.site.register(aero_head,head_text)
-admin.site.register(aero_highlight,head_text)
-admin.site.register(aero_workshop,head_text)
-admin.site.register(aero_event,head_text)
-
-from .models import astro_head,astro_about_image, astro_highlight,astro_workshop,astro_event
-
-admin.site.register(astro_about_image,head_text)
-admin.site.register(astro_head,head_text)
-admin.site.register(astro_highlight,head_text)
-admin.site.register(astro_workshop,head_text)
-admin.site.register(astro_event,head_text)
-
-from .models import biz_head,biz_about_image, biz_highlight,biz_workshop,biz_event
-
-admin.site.register(biz_about_image,head_text)
-admin.site.register(biz_head,head_text)
-admin.site.register(biz_highlight,head_text)
-admin.site.register(biz_workshop,head_text)
-admin.site.register(biz_event,head_text)
-
-from .models import csi_head,csi_about_image, csi_highlight,csi_workshop,csi_event
-
-admin.site.register(csi_about_image,head_text)
-admin.site.register(csi_head,head_text)
-admin.site.register(csi_highlight,head_text)
-admin.site.register(csi_workshop,head_text)
-admin.site.register(csi_event,head_text)
+    fieldsets = [
+        ("About The Club", {'fields': ["name","about","tagline","quote","logo_img"]}),
+        ("External Links", {"fields": ["facebook","twitter","insta","git","youtube","linkedin"]}),
+        ("Contact Us", {"fields": ["club_room_location","contact","email"]}) ,       
+        ("Club Head", {"fields": ["user"]})        
+    ]
 
 
-from .models import cops_head,cops_about_image, cops_highlight,cops_workshop,cops_event
+class FilterImages(admin.ModelAdmin): 
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'user', None) is None:  
+            obj.user = request.user
+            print("saved")
+        obj.save()
 
-admin.site.register(cops_about_image,head_text)
-admin.site.register(cops_head,head_text)
-admin.site.register(cops_highlight,head_text)
-admin.site.register(cops_workshop,head_text)
-admin.site.register(cops_event,head_text)
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return about_images.objects.all()
+        else:
+            return about_images.objects.filter(user=request.user)
 
-from .models import robo_head,robo_about_image, robo_highlight,robo_workshop,robo_event
+    def has_change_permission(self, request, obj=None):
+        if not obj:
+            return True 
+        return obj.user == request.user or request.user.is_superuser
 
-admin.site.register(robo_about_image,head_text)
-admin.site.register(robo_head,head_text)
-admin.site.register(robo_highlight,head_text)
-admin.site.register(robo_workshop,head_text)
-admin.site.register(robo_event,head_text)
-
-from .models import sae_head,sae_about_image, sae_highlight,sae_workshop,sae_event
-
-admin.site.register(sae_about_image,head_text)
-admin.site.register(sae_head,head_text)
-admin.site.register(sae_highlight,head_text)
-admin.site.register(sae_workshop,head_text)
-admin.site.register(sae_event,head_text)
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = []
+        if not request.user.is_superuser:
+            self.exclude.append('user') #here!
+        return super(FilterImages, self).get_form(request, obj, **kwargs)
 
 
-# Register your models here.
+class FilterEvents(admin.ModelAdmin): 
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'user', None) is None:  
+            obj.user = request.user
+            print("saved")
+        obj.save()
+
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return events.objects.all()
+        else:
+            return events.objects.filter(user=request.user)
+
+    def has_change_permission(self, request, obj=None):
+        if not obj:
+            return True 
+        return obj.user == request.user or request.user.is_superuser
+
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = []
+        if not request.user.is_superuser:
+            self.exclude.append('user') #here!
+        return super(FilterEvents, self).get_form(request, obj, **kwargs)
+
+
+class FilterWorkshops(admin.ModelAdmin): 
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'user', None) is None:  
+            obj.user = request.user
+            print("saved")
+        obj.save()
+
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return workshops.objects.all()
+        else:
+            return workshops.objects.filter(user=request.user)
+
+    def has_change_permission(self, request, obj=None):
+        if not obj:
+            return True 
+        return obj.user == request.user or request.user.is_superuser
+
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = []
+        if not request.user.is_superuser:
+            self.exclude.append('user') #here!
+        return super(FilterWorkshops, self).get_form(request, obj, **kwargs)
+
+
+
+class FilterHighlights(admin.ModelAdmin): 
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'user', None) is None:  
+            obj.user = request.user
+            print("saved")
+        obj.save()
+
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return highlights.objects.all()
+        else:
+            return highlights.objects.filter(user=request.user)
+
+    def has_change_permission(self, request, obj=None):
+        if not obj:
+            return True 
+        return obj.user == request.user or request.user.is_superuser
+
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = []
+        if not request.user.is_superuser:
+            self.exclude.append('user') #here!
+        return super(FilterHighlights, self).get_form(request, obj, **kwargs)
+
+
+admin.site.register(details,FilterDetails)
+admin.site.register(about_images,FilterImages)
+admin.site.register(events,FilterEvents)
+admin.site.register(workshops,FilterWorkshops)
+admin.site.register(highlights,FilterImages)
