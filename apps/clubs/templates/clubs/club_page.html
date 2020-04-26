@@ -107,17 +107,15 @@
         </div>
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <section id="portfolio-details" class="portfolio-details" data-aos="fade-up" data-aos-delay="100">
-              <div class="container">
-                <div class="portfolio-details-container">
-                  <div class="owl-carousel portfolio-details-carousel">
-                    {% for a in about_images %}
-                    <img src="{{a.photo.url}}" class="img-fluid" alt="">
-                    {% endfor %}
-                  </div>
+            <div id="portfolio-details" class="portfolio-details" data-aos="fade-up" data-aos-delay="100">
+              <div class="portfolio-details-container">
+                <div class="owl-carousel portfolio-details-carousel">
+                  {% for a in about_images %}
+                  <img src="{{a.photo.url}}" class="img-fluid" alt="">
+                  {% endfor %}
                 </div>
               </div>
-            </section><!-- End Portfolio Details Section -->
+            </div>
           </div>
           <div class="col-lg-6" data-aos="fade-left">
             <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
