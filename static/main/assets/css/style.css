@@ -625,7 +625,40 @@ background-size: 20px 20px;
   align-items: center;
   margin-bottom: 50px;
   color: #90AFC5;
+  <div class="col-lg-2 col-md-6">
+  <div class="box" data-aos="zoom-in" data-aos-delay="100">
+    <h3>Free</h3>
+    <h4><sup>$</sup>0<span> / month</span></h4>
+    <ul>
+      <li>Aida dere</li>
+      <li>Nec feugiat nisl</li>
+      <li>Nulla at volutpat dola</li>
+      <li class="na">Pharetra massa</li>
+      <li class="na">Massa ultricies mi</li>
+    </ul>
+    <div class="btn-wrap">
+      <a href="#" class="btn-buy">Buy Now</a>
+    </div>
+  </div>
+</div>
 
+<div class="col-lg-2 col-md-6 mt-4 mt-md-0">
+  <div class="box recommended" data-aos="zoom-in">
+    <span class="recommended-badge">Recommended</span>
+    <h3>Business</h3>
+    <h4><sup>$</sup>19<span> / month</span></h4>
+    <ul>
+      <li>Aida dere</li>
+      <li>Nec feugiat nisl</li>
+      <li>Nulla at volutpat dola</li>
+      <li>Pharetra massa</li>
+      <li class="na">Massa ultricies mi</li>
+    </ul>
+    <div class="btn-wrap">
+      <a href="#" class="btn-buy">Buy Now</a>
+    </div>
+  </div>
+</div>
 }
 
 .featured .image-club{
@@ -1135,8 +1168,7 @@ background-size: 20px 20px;
 .testimonials .owl-nav, .testimonials .owl-dots {
   margin-top: 5px;
   text-align: center;
-}
-
+}overly
 .testimonials .owl-dot {
   display: inline-block;
   margin: 0 5px;
@@ -1186,7 +1218,7 @@ background-size: 20px 20px;
   transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {overly
   .clients img {
     width: 40%;
   }
@@ -1277,23 +1309,59 @@ background-size: 20px 20px;
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/
+.pricing{
+  position: relative;
+  background-color: darkred;
+}
+
+.pricing .container-fluid{
+  height: 100%;
+  position: relative;
+
+}
+
+.pricing .technex-verticals{
+  height: 100%;
+  position: relative;
+}
+
+.pricing .rowoverlay{
+  position: absolute;
+  display: flex;
+  justify-content:baseline;
+  align-items: center;
+  z-index: 2;
+  background: rgba(39, 42, 43, 0.1);
+  border-radius: 4px;
+  margin: 0 auto ;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  }
+
+
+
 .pricing .box {
-  padding: 20px;
   background: #fff;
   text-align: center;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  border: 1px solid #fff;
+  height: 80%;
+  padding: 10px;
+  display: flex;
 }
 
-.pricing .box h3 {
+.pricing .box .name{
+  display: inline;
   font-weight: 400;
   padding: 15px;
   margin-top: 15px;
   font-size: 18px;
   font-weight: 600;
   color: #151515;
+  margin: auto;
 }
 
 .pricing .box h4 {
@@ -1391,6 +1459,30 @@ background-size: 20px 20px;
   text-transform: uppercase;
   font-weight: 600;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1649,10 +1741,7 @@ background-size: 20px 20px;
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 0;
-}
-
+.portfolio-details {[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled)
 .portfolio-details .portfolio-details-container {
   position: relative;
   padding: 20px;
@@ -1673,7 +1762,7 @@ background-size: 20px 20px;
 .portfolio-details .portfolio-details-carousel .owl-dot {
   display: inline-block;
   margin: 0 10px 0 0;
-  width: 12px;
+  width: 12px;[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled)
   height: 12px;
   border-radius: 50%;
   background-color: #ddd !important;
