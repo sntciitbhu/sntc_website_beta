@@ -405,7 +405,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 section {
   padding: 60px 0;
-  height: 100vh;
+  height: 91vh;
   overflow: hidden;
 
 }
@@ -625,40 +625,6 @@ background-size: 20px 20px;
   align-items: center;
   margin-bottom: 50px;
   color: #90AFC5;
-  <div class="col-lg-2 col-md-6">
-  <div class="box" data-aos="zoom-in" data-aos-delay="100">
-    <h3>Free</h3>
-    <h4><sup>$</sup>0<span> / month</span></h4>
-    <ul>
-      <li>Aida dere</li>
-      <li>Nec feugiat nisl</li>
-      <li>Nulla at volutpat dola</li>
-      <li class="na">Pharetra massa</li>
-      <li class="na">Massa ultricies mi</li>
-    </ul>
-    <div class="btn-wrap">
-      <a href="#" class="btn-buy">Buy Now</a>
-    </div>
-  </div>
-</div>
-
-<div class="col-lg-2 col-md-6 mt-4 mt-md-0">
-  <div class="box recommended" data-aos="zoom-in">
-    <span class="recommended-badge">Recommended</span>
-    <h3>Business</h3>
-    <h4><sup>$</sup>19<span> / month</span></h4>
-    <ul>
-      <li>Aida dere</li>
-      <li>Nec feugiat nisl</li>
-      <li>Nulla at volutpat dola</li>
-      <li>Pharetra massa</li>
-      <li class="na">Massa ultricies mi</li>
-    </ul>
-    <div class="btn-wrap">
-      <a href="#" class="btn-buy">Buy Now</a>
-    </div>
-  </div>
-</div>
 }
 
 .featured .image-club{
@@ -1309,9 +1275,19 @@ background-size: 20px 20px;
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/
+:root{
+  --color1:#00293c;
+  --color2:#f8f5f2;
+  --color3:#f62a00;
+  --color4:#1e656d;
+  --textcolor:black;
+}
+
+
 .pricing{
   position: relative;
-  background-color: darkred;
+  background-color: var(--color1);
+
 }
 
 .pricing .container-fluid{
@@ -1325,39 +1301,51 @@ background-size: 20px 20px;
   position: relative;
 }
 
-.pricing .rowoverlay{
-  position: absolute;
-  display: flex;
-  justify-content:baseline;
-  align-items: center;
-  z-index: 2;
-  background: rgba(39, 42, 43, 0.1);
-  border-radius: 4px;
-  margin: 0 auto ;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%,-50%);
 
-  }
+
+
+.pricing .section-title h2{
+  color: var(--color2);
+}
 
 
 
 .pricing .box {
-  background: #fff;
   text-align: center;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  height: 80%;
-  padding: 10px;
+  height: 90%;
+  padding: 20px;
+  color: var(--textcolor);
+  box-shadow: 0px 0 25px rgba(187, 158, 158, 0.4);
+
+
+}
+
+.pricing .box-mid {
   display: flex;
+  background-color: var(--color2);
+}
+.pricing .box-mid img{
+  width: 60%;
+}
+
+
+.pricing .box-side1{
+  display: flex;
+  background-color: var(--color3);
+}
+
+.pricing .box-side2{
+  display: flex;
+  background-color: var(--color4);
 }
 
 .pricing .box .name{
   display: inline;
   font-weight: 400;
   padding: 15px;
-  margin-top: 15px;
   font-size: 18px;
   font-weight: 600;
   color: #151515;
@@ -1417,8 +1405,8 @@ background-size: 20px 20px;
   display: inline-block;
   padding: 10px 40px 12px 40px;
   border-radius: 5px;
-  border: 2px solid #7cc576;
-  color: #7cc576;
+  border: 2px solid var(--color1);
+  color: var(--color1);
   font-size: 14px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -1427,8 +1415,8 @@ background-size: 20px 20px;
 }
 
 .pricing .box .btn-buy:hover {
-  background: #7cc576;
-  color: #fff;
+  background: var(--color1);
+  color: var(--color2);
 }
 
 .pricing .recommended {
@@ -1545,6 +1533,10 @@ background-size: 20px 20px;
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact{
+  position: relative;
+  padding-bottom: 0;
+}
 .contact .info {
   width: 100%;
   height: 100%;
@@ -1693,6 +1685,66 @@ background-size: 20px 20px;
   }
 }
 
+
+.contact .footer {
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.85);
+  bottom: 0;
+  /* transform: translateY(-100%); */
+  padding: 20px;
+}
+
+.contact .footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.contact .footer h4 {
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.contact .footer p {
+  font-size: 15;
+  font-style: italic;
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.contact .footer img{
+  display: block;
+  margin:auto;
+}
+
+.contact .footer .footer-top .footer-newsletter {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+.contact .footer .footer-top .footer-newsletter form {
+  background: #fff;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
@@ -1826,132 +1878,3 @@ background-size: 20px 20px;
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-#footer {
-  background: url("../img/footer-bg.jpg") center center no-repeat;
-  color: #fff;
-  font-size: 14px;
-  position: relative;
-}
-
-#footer::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 1;
-}
-
-#footer .footer-top {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 80px 0;
-}
-
-#footer .footer-top .footer-logo img {
-  height: 80px;
-}
-
-#footer .footer-top h3 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #fff;
-  position: relative;
-  font-family: "Poppins", sans-serif;
-  padding: 30px 0 0 0;
-  margin-bottom: 0;
-}
-
-#footer .footer-top p {
-  font-size: 15;
-  font-style: italic;
-  margin: 30px 0 0 0;
-  padding: 0;
-}
-
-#footer .footer-top .footer-newsletter {
-  text-align: center;
-  font-size: 15px;
-  margin-top: 30px;
-}
-
-#footer .footer-top .footer-newsletter form {
-  background: #fff;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-
-#footer .footer-top .footer-newsletter form input[type="email"] {
-  border: 0;
-  padding: 4px 8px;
-  width: calc(100% - 100px);
-}
-
-#footer .footer-top .footer-newsletter form input[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: -1px;
-  bottom: 0;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 20px;
-  background: #7cc576;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-#footer .footer-top .footer-newsletter form input[type="submit"]:hover {
-  background: #5ab652;
-}
-
-#footer .footer-top .social-links {
-  margin-top: 30px;
-}
-
-#footer .footer-top .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #7cc576;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-#footer .footer-top .social-links a:hover {
-  background: #5ab652;
-  color: #fff;
-  text-decoration: none;
-}
-
-#footer .footer-bottom {
-  border-top: 1px solid #222222;
-  z-index: 2;
-  position: relative;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-#footer .copyright {
-  text-align: center;
-}
-
-#footer .credits {
-  text-align: center;
-  font-size: 13px;
-  padding-top: 5px;
-}
