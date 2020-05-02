@@ -64,6 +64,7 @@ def loginuser(request):
     elif action == "logout":
       del request.session["loggedin"]
       del request.session["name"]
+      del request.session["details"]
       try:
         logger.info(request.session["name"])
       except:
