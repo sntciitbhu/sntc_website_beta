@@ -4,233 +4,230 @@
 <html lang="en">
 
 <head>
-	<title>Login V9</title>
+  <title>Login Science and Technology Council</title>
   <meta charset="UTF-8">
-  <meta name="google-signin-client_id" content="230326381758-a6egb1esqcqml0iv8uccm7jknriq0cjr.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>  </script>
+  <meta name="google-signin-client_id"
+    content="230326381758-a6egb1esqcqml0iv8uccm7jknriq0cjr.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer> </script>
 
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico">
-	<link rel="stylesheet"  href=" {% static "vendor/bootstrap/css/bootstrap.min.css" %}"/>
-	<link rel="stylesheet"  href=" {% static "main/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
-	<link rel="stylesheet"  href=" {% static "main/login/fonts/iconic/css/material-design-iconic-font.min.css" %}">
-	<link rel="stylesheet"  href=" {% static "vendor/animate/animate.css" %}">
-	<link rel="stylesheet"  href=" {% static "vendor/css-hamburgers/hamburgers.min.css" %}">
-	<link rel="stylesheet"  href=" {% static "vendor/animsition/css/animsition.min.css" %}">
-	<link rel="stylesheet"  href=" {% static "vendor/select2/select2.min.css" %}">
-	<link rel="stylesheet"  href=" {% static "vendor/daterangepicker/daterangepicker.css" %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+  <link rel="stylesheet" href=" {% static "vendor/bootstrap/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" href=" {% static "main/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+  <link rel="stylesheet" href=" {% static "main/login/fonts/iconic/css/material-design-iconic-font.min.css" %}">
+  <link rel="stylesheet" href=" {% static "vendor/animate/animate.css" %}">
+  <link rel="stylesheet" href=" {% static "vendor/css-hamburgers/hamburgers.min.css" %}">
+  <link rel="stylesheet" href=" {% static "vendor/animsition/css/animsition.min.css" %}">
+  <link rel="stylesheet" href=" {% static "vendor/select2/select2.min.css" %}">
+  <link rel="stylesheet" href=" {% static "vendor/daterangepicker/daterangepicker.css" %}">
 
   <!-- Template Main CSS File -->
-	<link rel="stylesheet"  href=" {% static "main/login/css/util.css" %}">
-  <link rel="stylesheet"  href=" {% static "main/login/css/main.css" %}">
-  </head>
+  <link rel="stylesheet" href=" {% static "main/login/css/util.css" %}">
+  <link rel="stylesheet" href=" {% static "main/login/css/main.css" %}">
+</head>
 
 <body>
-    <div class="container-login100" style="background-image: url('{% static '/clubs/img/footer-bg.jpg' %}')">
-      <div class= "flip-box card col-lg-4" id = "flipbox">
-      <div class = "flip-card-inner">
-      <div class="wrap-login100-frontpage" id = "front-card">
-        <form class="login100-form validate-form">
-          <span class="login100-form-title p-b-37">
-            Sign In
-          </span>
-          <div class="details">
-            <h4>FOR IIT BHU STUDENTS</h4>
-            <p>Login in to your Profile on Science and Technology Council to register for events, workshop, session and much more.</p>
-            <p>Sign in using your IIT BHU official E-mail</p>
-          </div>
-          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="light" data-longtitle="true" ></div>
-          <div class="text-center">
-            <a class="txt2 hov1">
-              Secretary Login
-            </a>
-          </div>
-        </form>
-      </div>
-
-      <div class="wrap-login100-backpage disabledbutton" id = "back-page">
-
-          <div class=" login100-form validate-form">
-              <form id="msform" method="post" action = "/user/">
-                {% csrf_token %}
-
-                  <!-- progressbar -->
-                  <ul id="progressbar">
-                      <li class="active"></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-
-                  </ul>
-                  <!-- fieldsets -->
-                  <fieldset>
-                      <h2 class="fs-title">Personal Details</h2>
-                      <h3 class="fs-subtitle">Verify the following details</h3>
-                      <div class="wrap-input100 validate-input m-b-20">
-                        <img src="{% static "clubs/img/logo.png" %}" class = "profile-image" alt="Avatar" id ="profile-img" style="border-radius: 50%">
-                      </div>
-                      <input type="hidden" id="id_token" name="id_token">
-
-                        <div class="wrap-input100 validate-input m-b-20" data-validate="Enter Name">
-                          <input class="input100" type="text" id="name" name="name" placeholder="username">
-                          <span class="focus-input100"></span>
-                        </div>
-                        <input type="hidden" id="email" name="email">               
-              
-                        <div class="wrap-input100 validate-input m-b-25" data-validate = "Institute E-mail">
-                          <input disabled class="input100" type="e-mail" id="e-mail" name="email" placeholder="email">
-                          <span class="focus-input100"></span>
-                        </div>
-
-                        <div class="wrap-input100 validate-input m-b-25" data-validate = "Institute rollnumber">
-                          <input class="input100" type="rollnumber" id="rollnumber" name="rollnumber" placeholder="rollnumber">
-                          <span class="focus-input100"></span>
-                        </div>
-
-                      <input type="button" name="next" class="back-button action-button-previous" value="Back"/>
-                      <input type="button" name="next" class="next action-button" value="Next"/>
-                  </fieldset>
-                  <fieldset>
-                      <h2 class="fs-title">Little More</h2>
-                      <h3 class="fs-subtitle">We'd love to wish you on your bday, Provided you are girl :-)</h3>
-
-                      <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter Birth Date">
-                        <input  class="input100" placeholder="Date" type="text" name="bday" value="Your B'day" onfocus="(this.type='date')" >
-                        <span class="focus-input100"></span>
-                      </div>
-                        
-                      <div class="wrap-input100 validate-input m-b-25" data-validate = "Phone Number">
-                        <input  class="input100" type="tel" name="phone" placeholder="Contact Number" pattern="[0-9]{11}" >
-                        <span class="focus-input100"></span>
-                      </div>                     
-                      <div class="wrap-input100 validate-input m-b-25" data-validate = "Gender">
-                        <select  class="input100" name="gender" placeholder="Gender">
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                          <option value="other">other(we won't tell anyone)</option>
-                        </select>
-                        <span class="focus-input100"></span>
-                      </div>
-                      <div class="wrap-input100 validate-input m-b-25" data-validate = "Current Hostel">
-                        <select  class="input100" name="hostel" placeholder="Hostel">
-                          <option value="Limbdi">Limbdi</option>
-                          <option value="Rajputana">Rajputana</option>
-                          <option value="other">other(we won't tell anyone)</option>
-                        </select>
-                        <span class="focus-input100"></span>
-                      </div>
-                      <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                      <input type="button" name="next" class="next action-button" value="Next"/>
-                  </fieldset>
-                  <fieldset>
-                    <h2 class="fs-title">Academic Details</h2>
-                    <h3 class="fs-subtitle">It will help us redirect proper opportunities to you.</h3>
-                    <div class="wrap-input100 validate-input m-b-20" data-validate="Enter your last college">
-                      <input class="input100" type="text" name="institute" placeholder="Insitute Name" value="Indian Institute of Technology BHU Varanasi">
-                      <span class="focus-input100"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input m-b-25" data-validate = "Branch">
-                      <select  class="input100" name="branch" placeholder="Branch">
-                        <option value="Electrical">electrical</option>
-                        <option value="Electronics">electronics</option>
-                        <option value="Mettalurgy">mettalurgy</option>
-                        <option value="others">Other</option>
-                      </select>
-                      <span class="focus-input100"></span>
-                    </div>
-  
-                    <div class="wrap-input100 validate-input m-b-25" data-validate = "Course">
-                      <select  class="input100" name="course" placeholder="Course">
-                        <option value="btech">B.Tech</option>
-                        <option value="mtech">M.Tech</option>
-                        <option value="phd">Ph.D</option>
-                        <option value="others">Other</option>
-                      </select>
-                      <span class="focus-input100"></span>
-                    </div>
-                    <div class="wrap-input100 validate-input m-b-25" data-validate = "Current Year">
-                      <select  class="input100" name="year" placeholder="Current Year">
-                        <option value="1">1st Year</option>
-                        <option value="2">2nd Year</option>
-                        <option value="3">3rd Year</option>
-                        <option value="4">4th Year</option>
-                        <option value="5">5th Year</option>
-                        <option value="9">Even Higher</option>
-                        <option value="0">Pass Out</option>
-                      </select>
-                      <span class="focus-input100"></span>
-                    </div>
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="button" name="next" class="next action-button" value="Next"/>
-                  </fieldset>
-                  <fieldset>
-                    <h2 class="fs-title">Skills and Interests</h2>
-                    <h3 class="fs-subtitle">We can help you with best opportunities</h3>
-
-                    <div class="wrap-input100 validate-input m-b-20">
-                      <img src="{% static "clubs/img/logo.png" %}" class = "avatar" alt="Avatar" id ="avatar" style="border-radius: 50%">
-                    </div>
-                      <div class="wrap-input100 validate-input m-b-20" data-validate="Enter favourite superhero">
-                        <input class="input100" type="text" id="superhero" name="superhero" placeholder="favourite superhero">
-                        <span class="focus-input100"></span>
-                      </div>
-
-                    <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter your Skills">
-                      <input  class="input100" placeholder="Tell us about your skills" text" name="skills" >
-                      <span class="focus-input100"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter your Interests">
-                      <input  class="input100" placeholder="Tell us about your Interests" text" name="interests" >
-                      <span class="focus-input100"></span>
-                    </div>
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    <input type="submit" name="submit" class="submit action-button" value="Submit"/>
-                </fieldset>
-              </form>
- 
-      </div>
-
-    
-
+  <div class="container-login100" style="background-image: url('{% static '/clubs/img/footer-bg.jpg' %}')">
+    <div class="flip-box card col-lg-4" id="flipbox">
+      <div class="flip-card-inner">
+        <div class="wrap-login100-frontpage" id="front-card">
+          <form class="login100-form validate-form">
+            <span class="login100-form-title p-b-37">
+              Sign In
+            </span>
+            <div class="details">
+              <h4>FOR IIT BHU STUDENTS</h4>
+              <p>Login in to your Profile on Science and Technology Council to register for events, workshop, session
+                and much more.</p>
+              <p>Sign in using your IIT BHU official E-mail</p>
+            </div>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="light" data-longtitle="true"></div>
+            <div class="text-center">
+              <a class="txt2 hov1">
+                Secretary Login
+              </a>
             </div>
 
+          </form>
+          <div id="loader" class="loader"></div>
+
+        </div>
+
+        <div class="wrap-login100-backpage disabledbutton" id="back-page">
+
+          <div class=" login100-form validate-form">
+            <form id="msform" method="post" action="/user/">
+              {% csrf_token %}
+
+              <!-- progressbar -->
+              <ul id="progressbar">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+              </ul>
+              <!-- fieldsets -->
+              <fieldset>
+                <h2 class="fs-title">Personal Details</h2>
+                <h3 class="fs-subtitle">Verify the following details</h3>
+                <div class="wrap-input100 validate-input m-b-20">
+                  <img src="{% static "clubs/img/logo.png" %}" class="profile-image" alt="Avatar" id="profile-img"
+                    style="border-radius: 50%">
+                </div>
+                <input type="hidden" id="id_token" name="id_token">
+
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter Name">
+                  <input class="input100" type="text" id="name" name="name" placeholder="username">
+                  <span class="focus-input100"></span>
+                </div>
+                <input type="hidden" id="email" name="email">
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Institute E-mail">
+                  <input disabled class="input100" type="e-mail" id="e-mail" name="email" placeholder="email">
+                  <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Institute rollnumber">
+                  <input class="input100" type="rollnumber" id="rollnumber" name="rollnumber" placeholder="rollnumber">
+                  <span class="focus-input100"></span>
+                </div>
+
+                <!-- <input type="button" name="previous" class="back-button action-button-previous" value="Back"/> -->
+                <input type="button" name="next" class="next action-button" value="Next" />
+              </fieldset>
+              <fieldset>
+                <h2 class="fs-title">Little More</h2>
+                <h3 class="fs-subtitle">We'd love to wish you on your bday, Provided you are girl :-)</h3>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Birth Date">
+                  <input class="input100" placeholder="Date" type="text" name="bday" value="Your B'day"
+                    onfocus="(this.type='date')">
+                  <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Phone Number">
+                  <input class="input100" type="tel" name="phone" placeholder="Contact Number" pattern="[0-9]{11}">
+                  <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Gender">
+                  <select class="input100" name="gender" placeholder="Gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">other(we won't tell anyone)</option>
+                  </select>
+                  <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Current Hostel">
+                  <select class="input100" name="hostel" placeholder="Hostel">
+                    <option value="Limbdi">Limbdi</option>
+                    <option value="Rajputana">Rajputana</option>
+                    <option value="other">other(we won't tell anyone)</option>
+                  </select>
+                  <span class="focus-input100"></span>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+              </fieldset>
+              <fieldset>
+                <h2 class="fs-title">Academic Details</h2>
+                <h3 class="fs-subtitle">It will help us redirect proper opportunities to you.</h3>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter your last college">
+                  <input class="input100" type="text" name="institute" placeholder="Insitute Name"
+                    value="Indian Institute of Technology BHU Varanasi">
+                  <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Branch">
+                  <select class="input100" name="branch" placeholder="Branch">
+                    <option value="Electrical">electrical</option>
+                    <option value="Electronics">electronics</option>
+                    <option value="Mettalurgy">mettalurgy</option>
+                    <option value="others">Other</option>
+                  </select>
+                  <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Course">
+                  <select class="input100" name="course" placeholder="Course">
+                    <option value="btech">B.Tech</option>
+                    <option value="mtech">M.Tech</option>
+                    <option value="phd">Ph.D</option>
+                    <option value="others">Other</option>
+                  </select>
+                  <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Current Year">
+                  <select class="input100" name="year" placeholder="Current Year">
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="5">5th Year</option>
+                    <option value="9">Even Higher</option>
+                    <option value="0">Pass Out</option>
+                  </select>
+                  <span class="focus-input100"></span>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+              </fieldset>
+              <fieldset>
+                <h2 class="fs-title">Skills and Interests</h2>
+                <h3 class="fs-subtitle">We can help you with best opportunities</h3>
+
+                <div class="wrap-input100 validate-input m-b-20">
+                  <img src="{% static "clubs/img/logo.png" %}" class="avatar" alt="Avatar" id="avatar"
+                    style="border-radius: 50%">
+                </div>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter favourite superhero">
+                  <input class="input100" type="text" id="superhero" name="superhero" placeholder="favourite superhero">
+                  <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your Skills">
+                  <input class="input100" placeholder="Tell us about your skills" text" name="skills">
+                  <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your Interests">
+                  <input class="input100" placeholder="Tell us about your Interests" text" name="interests">
+                  <span class="focus-input100"></span>
+                </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                <input type="submit" name="submit" class=" back-button submit action-button" value="Submit" />
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+    <div class="col-lg-6"></div>
+  </div>
 
 
-      <div class="col-lg-6" ></div>
 
-    </div>
 
-    
-    
-  
 
 
   <script src=" {% static "vendor/jquery/jquery.min.js" %}"></script>
   <script src=" {% static "vendor/animsition/js/animsition.min.js" %}"></script>
-	<script src=" {% static "vendor/bootstrap/js/popper.js" %}"></script>
-	<script src=" {% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
-	<script src=" {% static "vendor/select2/select2.min.js" %}"></script>
-	<script src=" {% static "vendor/daterangepicker/moment.min.js" %}"></script>
-	<script src=" {% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
+  <script src=" {% static "vendor/bootstrap/js/popper.js" %}"></script>
+  <script src=" {% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src=" {% static "vendor/select2/select2.min.js" %}"></script>
+  <script src=" {% static "vendor/daterangepicker/moment.min.js" %}"></script>
+  <script src=" {% static "vendor/daterangepicker/daterangepicker.js" %}"></script>
   <script src=" {% static "vendor/countdowntime/countdowntime.js" %}"></script>
   <script src=" {% static "vendor/jquery.easing/jquery.easing.min.js" %}"></script>
 
-  
+
   <!-- Template Main JS File -->
   <script src=" {% static "main/login/js/main.js" %}"></script>
   <script src=" {% static "main/login/js/gsignin.js" %}"></script>
-  
+
 
 
 </body>
+
 </html>
-
-
-
-
-
