@@ -27,9 +27,9 @@ def dashboard(request):
     return redirect('/login')
 
   else:
-    print ("python is bewkoof")
+    logger.info ("python is bewkoof")
     details = request.session['details']
-    print (details)
+    logger.info (details)
     messages.success(request,"Signed in as "+request.session['name'])
     return render(request, 'dashboard.html', {'user': details})
 
@@ -55,23 +55,23 @@ def loginuser(request):
         request.session["name"] = userDetails['name']
         request.session["details"] = userDetails
         request.session["loggedin"] = True
-        print(request.session["name"])
+        logger.info(request.session["name"])
 
     elif action == "logout":
       del request.session["loggedin"]
       del request.session["name"]
       try:
-        print(request.session["name"])
+        logger.info(request.session["name"])
       except:
-        print("no user found")
+        logger.info("no user found")
 
       response = {'logout' : True}
 
     return (JsonResponse(response))
 
   if request.method == "POST":
-    print ("creating User")
-    print (request.POST.dict)
+    logger.info ("creating User")
+    logger.info (request.POST.dict)
     userDetails = User.create(request.POST)
     request.session["name"] = userDetails['name']
     request.session["loggedin"] = True
