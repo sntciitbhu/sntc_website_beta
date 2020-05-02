@@ -29,10 +29,10 @@
 
 <body>
   <div class="container-login100" style="background-image: url('{% static '/clubs/img/footer-bg.jpg' %}')">
-    <div class="flip-box card col-lg-4" id="flipbox">
+    <div class="flip-box card col-lg-4 col-sm-12" id="flipbox">
       <div class="flip-card-inner">
         <div class="wrap-login100-frontpage" id="front-card">
-          <form class="login100-form validate-form">
+          <form class="login100-form">
             <span class="login100-form-title p-b-37">
               Sign In
             </span>
@@ -72,25 +72,25 @@
               <fieldset>
                 <h2 class="fs-title">Personal Details</h2>
                 <h3 class="fs-subtitle">Verify the following details</h3>
-                <div class="wrap-input100 validate-input m-b-20">
+                <div class="wrap-input100 m-b-20">
                   <img src="{% static "clubs/img/logo.png" %}" class="profile-image" alt="Avatar" id="profile-img"
                     style="border-radius: 50%">
                 </div>
                 <input type="hidden" id="id_token" name="id_token">
 
                 <div class="wrap-input100 validate-input m-b-20" data-validate="Enter Name">
-                  <input class="input100" type="text" id="name" name="name" placeholder="username">
+                  <input class="input100" type="text" id="name" name="name" placeholder="username" >
                   <span class="focus-input100"></span>
                 </div>
                 <input type="hidden" id="email" name="email">
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Institute E-mail">
-                  <input disabled class="input100" type="e-mail" id="e-mail" name="email" placeholder="email">
+                  <input disabled class="input100" type="email" id="e-mail" name="email" placeholder="email">
                   <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Institute rollnumber">
-                  <input class="input100" type="rollnumber" id="rollnumber" name="rollnumber" placeholder="rollnumber">
+                  <input class="input100" type="text" id="rollnumber" name="rollnumber" placeholder="rollnumber">
                   <span class="focus-input100"></span>
                 </div>
 
@@ -102,13 +102,13 @@
                 <h3 class="fs-subtitle">We'd love to wish you on your bday, Provided you are girl :-)</h3>
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Enter Birth Date">
-                  <input class="input100" placeholder="Date" type="text" name="bday" value="Your B'day"
-                    onfocus="(this.type='date')">
+                  <input class="input100" placeholder="Birth Date" type="text" name="bday"
+                    onfocus="(this.type='date') ">
                   <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Phone Number">
-                  <input class="input100" type="tel" name="phone" placeholder="Contact Number" pattern="[0-9]{11}">
+                  <input class="input100" type="tel" name="phone" placeholder="Contact Number" >
                   <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Gender">
@@ -177,7 +177,7 @@
                 <h2 class="fs-title">Skills and Interests</h2>
                 <h3 class="fs-subtitle">We can help you with best opportunities</h3>
 
-                <div class="wrap-input100 validate-input m-b-20">
+                <div class="wrap-input100 m-b-20">
                   <img src="{% static "clubs/img/logo.png" %}" class="avatar" alt="Avatar" id="avatar"
                     style="border-radius: 50%">
                 </div>
@@ -187,16 +187,16 @@
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your Skills">
-                  <input class="input100" placeholder="Tell us about your skills" text" name="skills">
+                  <input class="input100" placeholder="Tell us about your skills" name="skills">
                   <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Enter your Interests">
-                  <input class="input100" placeholder="Tell us about your Interests" text" name="interests">
+                  <input class="input100" placeholder="Tell us about your Interests" name="interests">
                   <span class="focus-input100"></span>
                 </div>
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                <input type="submit" name="submit" class=" back-button submit action-button" value="Submit" />
+                <input type="submit" class="action-button" value="Submit" />
               </fieldset>
             </form>
           </div>
