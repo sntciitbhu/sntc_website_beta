@@ -10,6 +10,9 @@ import requests
 
 from django.template.defaulttags import register
 
+logger = logging.getLogger(__name__)
+
+
 @register.filter
 def get_item(dictionary, key):
     return dictionary[key]
