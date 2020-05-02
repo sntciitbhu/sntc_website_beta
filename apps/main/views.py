@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .services import user
 from django.utils import timezone
+import logging
 import requests
 
 from django.template.defaulttags import register
