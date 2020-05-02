@@ -78,5 +78,6 @@ def loginuser(request):
     logger.info (request.POST.dict)
     userDetails = User.create(request.POST)
     request.session["name"] = userDetails['name']
+    request.session["details"] = userDetails
     request.session["loggedin"] = True
     return redirect('/dashboard')
