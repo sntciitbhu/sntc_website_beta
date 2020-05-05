@@ -27,6 +27,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+@media (max-width: 991.98px) {
+  body{
+    overflow-y: scroll;
+  }
+ }
+
+
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -185,9 +193,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #7cc576;
 }
 
-.nav-menu .drop-down > a:after {
-  content: "\ea99";
-  font-family: IcoFont;
+.nav-menu .drop-down > a:atoggle
   padding-left: 5px;
 }
 
@@ -326,7 +332,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.png");
+  background: url("../../img/hero-bg.png");
   position: relative;
 }
 
@@ -400,6 +406,168 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  opacity: .95;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding-top: 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #919191;
+  display: block;
+  transition: 0.3s;
+  transform-origin: left;
+}
+
+
+
+.sidenav h2 {
+  text-decoration: none;
+  font-size: 36px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+  border-bottom: medium solid #818181;
+}
+
+.sidenav p {
+  text-decoration: none;
+  font-size: 20px;
+  color: #919191;
+  display: block;
+  transition: 0.3s  margin-right: 4px;
+  ;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  
+  color: #f1f1f1;
+  transform: scale(1.2);
+  
+}
+
+
+.sidenav .login a{
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#caleandar {
+  padding: 0px 40px;
+}
+
+.calendar-wrapper a:hover{
+  transform: none;
+  color: black;
+}
+
+.sidenav .upcoming{
+  padding:  0;
+}
+
+.sidenav .upcoming h3{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+  
+}
+
+#more{
+  cursor: pointer;
+}
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.holder { 
+  width:100%;
+  height:330px;
+  overflow-y:scroll;
+  padding:10px;
+}
+
+.holder::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+.holder::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+.holder::-webkit-scrollbar-thumb {
+  background: #818181;
+  border-radius: 10px;
+}
+
+.holder ul {
+  margin-top:10px;
+
+  list-style:none;
+  margin:0;
+  padding:0;
+  position: relative;
+}
+.holder ul li {
+  padding:5px 0px;
+  border-bottom: #818181 solid thin;
+  color: white;
+}
+
+
+.holder ul li a {
+  text-decoration:none;
+  font-size: 18px;
+  padding:0;
+}
+.holder ul li a:hover {
+  transform: none;
+
+  
+}
+
+
+@media (max-width: 991.98px) {
+  .sidenav .items{
+    margin-bottom: 20px;
+
+  }
+
+ }
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -433,6 +601,19 @@ section {
   color: #aeaeae;
 }
 
+@media (max-width: 991.98px) {
+  section{
+    overflow-y: none;
+    height:auto;
+    padding-top: 30px;
+  }
+  .section-title{
+    padding-bottom: 10px;
+
+  }
+ }
+
+
 /*--------------------------------------------------------------
 # About Us
 --------------------------------------------------------------*/
@@ -455,7 +636,10 @@ section {
 .about .content ul {
   list-style: none;
   padding: 0;
+}.sidenav .upcomin{
+  padding: 20px 0;
 }
+
 
 .about .content ul li {
   padding-bottom: 10px;
@@ -475,7 +659,10 @@ section {
 
 .about .social-links {
   margin: 30px auto;
-  width: 50%;
+  text-align: center;
+}
+.sidenav .upcomin{
+  padding: 20px 0;
 }
 
 .about .social-links a {
@@ -485,7 +672,7 @@ section {
   color: #fff;
   line-height: 1;
   padding: 8px 0;
-  margin-right: 4px;
+  margin:auto;
   border-radius: 50%;
   text-align: center;
   width: 36px;
@@ -498,6 +685,21 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+
+
+@media (max-width: 991.98px) {
+  .about .image{
+    padding:5px;
+  }
+  .about .portfolio-details .portfolio-details-container{
+    padding:2px;
+  }
+  .about p{
+    font-size: 14px;
+  }
+
+ }
 
 
 /*--------------------------------------------------------------
@@ -577,6 +779,22 @@ section {
 }
 
 
+@media (max-width: 1080px) {
+  .featured {
+    height: 90vh;
+  }
+  .featured .clubs-screen{
+    display: none;
+  }
+  /* .featured .section-title{
+    display: none;
+  } */
+  .featured .clubs-mobile{
+    display:block;
+  }
+ }
+
+
 /*--------------------------------------------------------------
 # Featured
 --------------------------------------------------------------*/
@@ -590,8 +808,9 @@ linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
 linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
 linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
 linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-background-color: #131313;
+background-color: #571616;
 background-size: 20px 20px;
+position: relative;
 }
 
 .featured .section-title h2{
@@ -692,6 +911,96 @@ background-size: 20px 20px;
     opacity: 1;
   }
 }
+
+
+.selector {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30vw;
+  height: 30vw;
+  margin-top: -15vw;
+  margin-left: -15vw;
+  display: none;
+}
+.selector ul {
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+}
+.selector li {
+  position: absolute;
+  width: 0;
+  height: 100%;
+  margin: 0 50%;
+  transform:rotate(-360deg);
+  -webkit-transform: rotate(-360deg);
+  transition: all 0.8s ease-in-out;
+}
+.selector li input {
+  display: none;
+}
+.selector li img{
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  line-height: 1px;
+  margin-left: 0;
+  background: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.8s ease-in-out, color 0.1s, background 0.1s;
+}
+
+.selector.open li img {
+  width: 25vw;￼    height: 100%;
+  5vw;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, .1);
+  font-size: 14px;
+  border: transparent solid 5px;
+}
+
+.featured .tab-content {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translateX(-50%);
+  align-content: center;
+
+  color: white;
+}
+
+.featured .tab-content{
+  text-align: center;
+}
+
+
+@media (max-width: 1080px) {
+  .featured {
+    height: 90vh;
+  }
+  .featured .clubs-screen{
+    display: none;
+  }
+  /* .featured .section-title{
+    display: none;
+  } */
+  .featured .clubs-mobile{
+    display:block;
+  }
+ }
+
 
 /*--------------------------------------------------------------
 # Why Us
@@ -1448,28 +1757,32 @@ background-size: 20px 20px;
   font-weight: 600;
 }
 
+@media (max-width: 1080px) {
+  .pricing .box {
+    height: auto;
+    padding:5px;
+  }
+  .pricing .technex-verticals{
+    display: none;
+  }
+
+  .pricing .technex-mobile{
+    display: block;
+    padding: 0;
+  }
+
+  .pricing .technex-mobile .carousel-inner{
+    padding:20px 40px;
+  }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  /* .featured .section-title{
+    display: none;
+  } */
+  .featured .clubs-mobile{
+    display:block;
+  }
+ }
 
 
 
@@ -1711,11 +2024,6 @@ background-size: 20px 20px;
   margin-bottom: 0;
 }
 
-
-
-
-
-
 .contact .footer .footer-top .footer-newsletter {
   text-align: center;
   font-size: 15px;
@@ -1730,6 +2038,27 @@ background-size: 20px 20px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
+
+
+@media (max-width: 1080px) {
+  .contact .footer {
+    margin-top:50px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 50px;
+
+  }
+  .contact .footer h3{
+    font-size: 24px;
+  }
+  .contact .footer h4{
+    font-size: 16px;
+  }
+  .contact .footer img{
+    width: 50%;
+    margin:20px;
+  }
+ }
 
 
 /*--------------------------------------------------------------

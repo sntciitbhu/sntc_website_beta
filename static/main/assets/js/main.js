@@ -119,6 +119,8 @@
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
+    document.getElementById("mySidenav").style.width = "0";
+
     return false;
   });
 
