@@ -574,8 +574,13 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 60px 0;
   height: 91vh;
-  overflow: hidden;
+  overflow: auto;
+  -ms-overflow-style: none;
 
+}
+
+section::-webkit-scrollbar{
+  display: none;
 }
 
 .section-bg {
@@ -945,6 +950,7 @@ position: relative;
 .selector li input {
   display: none;
 }
+
 .selector li img{
   position: absolute;
   left: 50%;
@@ -962,13 +968,23 @@ position: relative;
   box-shadow: none;
   transition: all 0.8s ease-in-out, color 0.1s, background 0.1s;
 }
-
+/* 
 .selector.open li img {
-  width: 25vw;￼    height: 100%;
-  5vw;
+  width: 25vw;￼
+  height: 100% ;
+  margin-left: 5vw;
   box-shadow: 0 3px 3px rgba(0, 0, 0, .1);
   font-size: 14px;
   border: transparent solid 5px;
+} */
+
+.selector.open li img {
+  width: 25vw;
+  height: 25vw;
+  line-height: 25vw;
+  margin-left: - 12.5vw;
+  box-shadow: 0 3px 3px rgba(0,0,0,.1);
+  font-size: 14px;
 }
 
 .featured .tab-content {
@@ -988,7 +1004,7 @@ position: relative;
 
 @media (max-width: 1080px) {
   .featured {
-    height: 90vh;
+    height: 200vw;
   }
   .featured .clubs-screen{
     display: none;
@@ -1124,7 +1140,7 @@ position: relative;
   position: absolute;
   left: 50%;              <a href="#" class="btn-buy">Buy Now</a>
 
-  top: 50%;
+  top: 50%;aerogyo setu w
   transform: translateX(-40%) translateY(-50%);
   width: 0;
   height: 0;
@@ -1191,7 +1207,7 @@ position: relative;
 @media (max-width: 992px) {
   .why-us .content {
     padding-top: 30px;
-  }
+  }aerogyo setu w
   .why-us .accordion-list {
     padding-bottom: 30px;
   }
@@ -1606,19 +1622,17 @@ position: relative;
 }
 
 .pricing .technex-verticals{
-  height: 100%;
+  min-height: 90%;
   position: relative;
 }
 
-
-
+.pricing .technex-mobile{
+  display: none;
+}
 
 .pricing .section-title h2{
   color: var(--color2);
 }
-
-
-
 .pricing .box {
   text-align: center;
   border-radius: 8px;
@@ -1849,6 +1863,16 @@ position: relative;
 .contact{
   position: relative;
   padding-bottom: 0;
+}
+
+.contact .container{
+  min-height:70vh;
+}
+.contact .container-fluid{
+  min-height:20vh;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+
 }
 .contact .info {
   width: 100%;

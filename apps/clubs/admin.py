@@ -1,8 +1,12 @@
-from django.contrib import admin
+from apps.main.admin import admin
 from tinymce.widgets import TinyMCE
 from django.db import models
 
 from .models import details,about_images,events,workshops,highlights
+
+class InputImages(admin.TabularInline):
+    model = about_images
+    extra=0
 
 class FilterDetails(admin.ModelAdmin): 
     def save_model(self, request, obj, form, change):
@@ -38,6 +42,10 @@ class FilterDetails(admin.ModelAdmin):
         ("Contact Us", {"fields": ["club_room_location","contact","email"]}) ,       
         ("Club Head", {"fields": ["user"]})        
     ]
+    inlines = [
+        InputImages,
+    ]
+
 
 
 class FilterImages(admin.ModelAdmin): 
@@ -46,6 +54,9 @@ class FilterImages(admin.ModelAdmin):
             obj.user = request.user
             print("saved")
         obj.save()
+
+    def has_module_permission(self, request):
+        return False
 
     def get_queryset(self, request):
         if request.user.is_superuser:
@@ -145,4 +156,4 @@ admin.site.register(details,FilterDetails)
 admin.site.register(about_images,FilterImages)
 admin.site.register(events,FilterEvents)
 admin.site.register(workshops,FilterWorkshops)
-admin.site.register(highlights,FilterImages)
+admin.site.register(highlights,FilterHighlights)

@@ -1,20 +1,10 @@
 from django.db import models
 from django.conf import settings
+from apps.forms.models import Form
 
 from datetime import datetime
 from django.contrib.auth.models import User
 
-
-
-class about_images(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE, default = None, blank=True, null=True )
-
-    photo = models.ImageField(upload_to='img/about', default = 'null')
-    def __str__(self):
-        return "photo"
-
-    class Meta:
-        verbose_name_plural = "about_images"
 
 
 class details(models.Model):
@@ -42,12 +32,26 @@ class details(models.Model):
     contact = models.CharField(max_length=50, default = None)
     email = models.CharField(max_length=50, default = None)
 
+    # Club Images for About
+
+
     def __str__(self):
         return self.name
 
 
     class Meta:
         verbose_name_plural = "details"
+
+class about_images(models.Model):
+    club_name = models.ForeignKey(details, on_delete = models.CASCADE, default = None, blank=True, related_name = "about_images" )
+
+
+    photo = models.ImageField(upload_to='img/about', default = 'null')
+    def __str__(self):
+        return "photo"
+
+    class Meta:
+        verbose_name_plural = "about_images"
 
 
 class highlights(models.Model):
@@ -75,7 +79,7 @@ class events(models.Model):
     teamsize = models.IntegerField('max Team size',default = 1)
     refrences_link = models.URLField(max_length=500, default= 'null')
     ps_link = models.URLField(max_length=500, default= 'null')
-    registration_link = models.URLField(max_length=500, default= 'null')
+    registration_form = models.ForeignKey(Form, on_delete = models.SET_DEFAULT, default = None, blank=True )
     def __str__(self):
         return self.name
 
@@ -90,6 +94,8 @@ class workshops(models.Model):
     details = models.TextField()
     date = models.DateTimeField('date of workshop')
     presentation = models.URLField(max_length=500, default= 'null')
+    registration_form = models.OneToOneField(Form, on_delete = models.SET_DEFAULT, default = None, blank=True )
+
     def __str__(self):
         return self.name
     

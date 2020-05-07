@@ -47,6 +47,7 @@ var events = [
   caleandar(element, events, settings);
   
   var angleStart = -360;
+
   
   // jquery rotate animation
   function rotate(li,d) {
@@ -104,8 +105,4 @@ var events = [
     });
   });
 
-
-
-
-  
   setTimeout(function() { toggleOptionsopen('.selector'); }, 100);

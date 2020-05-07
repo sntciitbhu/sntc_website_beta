@@ -1,0 +1,55 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_list %}
+{% block title %}{{ "Students" }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block content %}
+<div id="content-main">
+    <h2>Details of Registered Students</h2>
+    {% csrf_token %}
+    <form id="changelist-form" method="get">
+        <label>Sort By</label>
+        <select name="sortby">
+            {% for head in heads %}
+            <option value={{head}}>{{head}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit" name="action" value="sort">
+        <input type="submit" name="action" value="download">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..">
+    </form>
+    <table style="width:100%" id="myTable">
+        <tr>
+            {% for head in heads %}
+            <th style="text-transform: capitalize;">{{head}}</th>
+            {%endfor%}
+        </tr>
+        {% for row in data %}
+        <tr>
+            {% for value in row %}
+            <td>{{value}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }    </form>
