@@ -23,7 +23,22 @@ var auth2;
     }
     else
     {
-      window.location.replace('/login')
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        $.ajax({
+          type: "GET",
+          dataType: 'text',
+          data: {'action' : 'logout'},
+          url: '/user',
+          success:function(msg){
+            console.log('User signed out.');
+            window.location.replace('/');
+          }
+      });
+  
+  
+      });
+
     }
 
   }
