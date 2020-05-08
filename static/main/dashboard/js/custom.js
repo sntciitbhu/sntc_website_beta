@@ -6,14 +6,12 @@ var auth2;
             scope: 'profile'
         });
 
-    auth2.then(checkUser);
+    auth2.then(checkUser,signOut;
 
   });
 
   function checkUser()
   {
-    try{
-
 
     if(auth2.isSignedIn.get())
     {
@@ -42,12 +40,6 @@ var auth2;
       });
 
     }
-  }
-  catch(err)
-  {
-    signOut();
-  }
-
   }
 
   function signOut() {
