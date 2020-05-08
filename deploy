@@ -3,6 +3,6 @@
 
 echo "Hello World!"
 git add *
-git commit -m "Login Page Changed"
+git commit -m "database changes"
 git push
 git push heroku master

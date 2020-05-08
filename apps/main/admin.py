@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from .services import superuser
+from django.contrib.auth.admin import UserAdmin
+
 import csv
 
 adminUser = superuser()
@@ -63,8 +65,8 @@ admin.site.site_header = 'Office Bearer Portal'
 admin.site.site_title = 'SNTC Administraion'
 admin.site.index_title = 'Components'
 admin.site.index_template = 'admin/sidebar.html'
-admin.site.register(User)
 admin.site.register(Group)
+admin.site.register(User, UserAdmin)
 
 
 
