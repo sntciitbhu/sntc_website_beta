@@ -12,6 +12,8 @@ var auth2;
 
   function checkUser()
   {
+    try{
+
 
     if(auth2.isSignedIn.get())
     {
@@ -32,7 +34,7 @@ var auth2;
           url: '/user',
           success:function(msg){
             console.log('User signed out.');
-            window.location.replace('/');
+            window.location.replace('/login');
           }
       });
   
@@ -40,6 +42,11 @@ var auth2;
       });
 
     }
+  }
+  catch(err)
+  {
+    signOut();
+  }
 
   }
 
