@@ -15,13 +15,14 @@ var auth2;
 
   function checkUser()
   {
+    var instance = gapi.auth2.getAuthInstance();
 
-    if(auth2.isSignedIn.get())
+    if(instance.isSignedIn.get())
     {
-      var user = auth2.currentUser.get();
+      var user = instance.currentUser.get();
       console.log(user);
-      console.log(auth2.currentUser.get().getBasicProfile());
-      var profile = auth2.currentUser.get().getBasicProfile();
+      console.log(instance.currentUser.get().getBasicProfile());
+      var profile = instance.currentUser.get().getBasicProfile();
       document.getElementById("profile-image").src = profile.getImageUrl();
     }
     else
