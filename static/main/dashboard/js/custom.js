@@ -6,7 +6,7 @@ var auth2;
             scope: 'profile'
         });
 
-    auth2.then(checkUser,signOut;
+    auth2.then(checkUser,signOut);
 
   });
 
