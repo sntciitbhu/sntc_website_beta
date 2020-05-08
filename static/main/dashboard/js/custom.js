@@ -1,6 +1,7 @@
 var auth2;
 
-  gapi.load('auth2',function(){
+  function onLoad(){
+    gapi.load('auth2',function(){
     auth2 = gapi.auth2.init({
             client_id: '230326381758-a6egb1esqcqml0iv8uccm7jknriq0cjr.apps.googleusercontent.com',
             scope: 'profile'
@@ -9,6 +10,7 @@ var auth2;
     auth2.then(checkUser,signOut);
 
   });
+}
 
   function checkUser()
   {
