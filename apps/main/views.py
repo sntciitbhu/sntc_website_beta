@@ -34,6 +34,7 @@ def dashboard(request):
     logger.info ("python is bewkoof")
     details = request.session['details']
     logger.info (details)
+    print(request.session['name'])
     messages.success(request,"Signed in as "+request.session['name'])
     return render(request, 'dashboard.html', {'user': details})
 

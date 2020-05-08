@@ -21,7 +21,7 @@ function check_userexists(response,profile){
     var email = document.getElementById('email');
     var e_mail = document.getElementById('e-mail');
     var img = document.getElementById('profile-img');
-    document.getElementById("loader").style.display = "block";
+    document.getElementById("loader").style.visibility = "visible";
     $.ajax({
         type: "GET",
         dataType: 'text',

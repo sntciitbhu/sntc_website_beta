@@ -17,3 +17,6 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(blank=True,null=True, default=None, on_delete=django.db.models.deletion.CASCADE, related_name='about_images', to='clubs.details'),
         ),
     ]
+
+
+

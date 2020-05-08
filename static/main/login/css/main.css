@@ -148,21 +148,23 @@ iframe {
 
 .container-login100 {
   width: 100%;  
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
+  height: 100vh;
+
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
   z-index: 1;
+}
+
+.container-login100 .row {
+  height: 100%;
+  width: 100%;
+  margin:0;
 }
 
 .container-login100::before {
@@ -174,15 +176,16 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(12, 11, 22, 0.5);
+  background: rgba(12, 11, 22, 0.1);
 
   pointer-events: none;
 }
 
 .flip-box{
-  background-color: transparent;
-  height: 700px;
+  background-color: whitesmoke;
+  height: 100%;
   width: 100%;
+  align-items: center;
 
   perspective: 1000px;
 
@@ -190,8 +193,9 @@ iframe {
 
 .flip-card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  margin:auto;
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
@@ -222,13 +226,15 @@ iframe {
 }
 
 .wrap-login100-backpage {
-  background-color:blue;
+  background-color: darkcyan;
   transform: rotateY(180deg);
   position: absolute;
   width: 100%;
   height: 100%;
 
 }
+
+
 
 .flip-box.flip .flip-card-inner {
   transform: rotateY(180deg);
@@ -246,7 +252,9 @@ iframe {
   height: 120px;
   margin:auto;
   animation: spin 2s linear infinite;
-  display: none;
+  visibility: hidden;
+  margin-bottom: 20px;
+
 }
 
 @keyframes spin {
@@ -434,15 +442,6 @@ iframe {
 
 .alert-validate::before {
   content: attr(data-validate);
-  <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-  <input type="button" name="next" class="next action-button" value="Next"/>
-</fieldset>
-<fieldset>
-    <h2 class="fs-title">Create your account</h2>
-    <h3 class="fs-subtitle">Fill in your credentials</h3>
-    <input type="text" name="email" placeholder="Email"/>
-    <input type="password" name="pass" placeholder="Password"/>
-    <input type="password" name="cpass" placeholder="Confirm Password"/>
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -690,9 +689,7 @@ absolute
     background: #FFF;
     font-weight: bold;
     color: #ee0979;
-    border: 0 none;
-    border-radius: 25px;
-    cursor: pointer;
+    border: 0 none;60%
     padding: 5px 25px;
     font-size: 12px;
 }
@@ -701,3 +698,23 @@ absolute
     background: #C5C5F1;
     text-decoration: none;
 }
+
+
+@media (max-width: 1080px) {
+  .flip-box {
+    background:transparent;
+  }
+
+  .flip-card-inner{
+    background: transparent;
+    width: 100%;
+    height: 90%;
+  }
+  .loader{
+    width:  40px;
+    height: 40px;
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #3498db; /* Blue */
+
+  }
+ }
