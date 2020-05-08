@@ -1,0 +1,8 @@
+#!/bin/bash
+# My first script
+
+echo "Hello World!"
+git add *
+git commit -m "Login Page Changed"
+git push
+git push heroku master

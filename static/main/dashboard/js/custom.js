@@ -1,6 +1,7 @@
 var auth2;
 
   function onLoad(){
+    console.log("onload")
     gapi.load('auth2',function(){
     auth2 = gapi.auth2.init({
             client_id: '230326381758-a6egb1esqcqml0iv8uccm7jknriq0cjr.apps.googleusercontent.com',
