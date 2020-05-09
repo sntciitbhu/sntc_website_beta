@@ -791,7 +791,7 @@ section {
   padding-bottom: 16px;
 }
 
-.featured .box ul i {
+.featured  ul i {
   color: white;
   font-size: 18px;
   padding-right: 4px;
@@ -800,22 +800,22 @@ section {
 
 
 
-.featured .box .btn-wrap {
+.featured  .btn-wrap {
   padding: 10px;
   text-align: center;
 }
 
-.featured .box .btn-buy {
+.featured  .btn-buy {
   display: inline-block;
-  margin: 5px 20px 5px 20px;
+  margin: 5px 20px;
   padding: 10px 40px 10px 40px;
   border-radius: 5px;
-  border: 2px solid white;
-  color: white;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
   transition: 0.3s;
   height: inherit;
+  background:blue;
+  color:red; 
 }
 
 
@@ -830,17 +830,15 @@ section {
 
 
 
-.featured .box .btn-buy:hover {
+.featured  .btn-buy:hover {
   background: #8DB4A5;
   color:#754d5d ;
 }
 
 
 .featured .recommended-badge {
-  position: absolute;
-  top: 5px;
-  transform: translateX(-50%);
-  z-index: 1;
+  position: relative;
+  width: fit-content;
   font-size: 12px;
   padding: 4px 25px 6px 25px;
   background: #8DB4A5;
@@ -848,6 +846,7 @@ section {
   border-radius: 50px;
   text-transform: uppercase;
   font-weight: 600;
+  margin: 10px auto;
 }
 
 .featured .circle {
@@ -869,7 +868,7 @@ section {
 
 .featured .circle p {
 
-  padding-top: 60px;
+  padding-top: 45px;
   font-size: 22px;
   color: black;
   display: block;
@@ -902,30 +901,125 @@ section {
 
 .featured .icon-box p {
   font-size: 20px;
-  color: white;
-  margin-left: auto;
+  color:black;
+  margin-left: 45px;
+
 }
 
-#featured {
-  display: block;
+
+/* show 3 items */
+.carousel-item{
+  margin-right: 0;
 }
 
-#featured-mobile {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-
-  #featured {
-    display: none;
+@media (min-width: 768px) {
+	/* left or forward direction */
+	/* farthest right hidden item must be abso position for animations */
+  /* right or prev direction */
+  .carousel-item{
+    margin-right: 0;
   }
-
-  #featured-mobile {
-    display: block;
+	 .carousel-inner .active, .carousel-inner .active + .carousel-item, .carousel-inner .active + .carousel-item + .carousel-item {
+		 display: block;
   }
+	 .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left), .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item, .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+		 transition: all;
+	}
+	 .carousel-inner .carousel-item-next, .carousel-inner .carousel-item-prev {
+		 position: relative;
+		 transform: translate3d(0, 0, 0);
+	}
+	 .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+		 position: absolute;
+		 top: 0;
+		 right: -33.3333%;
+		 z-index: -1;
+		 display: block;
+		 visibility: visible;
+	}
+	 .active.carousel-item-left + .carousel-item-next.carousel-item-left, .carousel-item-next.carousel-item-left + .carousel-item, .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item, .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+		 position: relative;
+		 transform: translate3d(-100%, 0, 0);
+		 visibility: visible;
+	}
+	 .carousel-inner .carousel-item-prev.carousel-item-right {
+		 position: absolute;
+		 top: 0;
+		 left: 0;
+		 z-index: -1;
+		 display: block;
+		 visibility: visible;
+	}
+	 .active.carousel-item-right + .carousel-item-prev.carousel-item-right, .carousel-item-prev.carousel-item-right + .carousel-item, .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item, .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+		 position: relative;
+		 transform: translate3d(100%, 0, 0);
+		 visibility: visible;
+		 display: block;
+	}
+}
+
+.carousel-control-prev, .carousel-control-next{
+  align-items: baseline;
+  bottom: 90%;
+
 }
 
 
+ 
+.card-flip {
+  perspective: 1000px;
+  margin:50px 0;
+}
+.card-flip.flipped .flip {
+  transform: rotateY(180deg);
+}
+.card-flip, .front, .back {
+  width: 100%;
+  height: 600px;
+}
+.flip {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.front, .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.back {
+  transform: rotateY(180deg);
+}
+
+.card{
+  padding: 5px 40px;
+  height: 100%;
+}
+
+.featured  .btn-buy {
+  display: inline-block;
+  pointer-events: none;
+  margin: 5px 20px;
+  padding: 10px 40px 10px 40px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3s;
+  height: inherit;
+  background:blue;
+  color:red; 
+}
+
+.featured .card-flip.flipped  .btn-buy {
+  cursor: pointer;
+  pointer-events: all;
+
+}
 
 
 
@@ -1474,8 +1568,7 @@ section {
 .team .member .member-img {
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
-}
+  }
 
 .team .member .social {
   position: absolute;

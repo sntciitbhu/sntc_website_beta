@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.technex.apps.TechnexConfig',
     'apps.forms.apps.FormsConfig',
 
+    'django_cleanup.apps.CleanupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

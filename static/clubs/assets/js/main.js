@@ -43,6 +43,64 @@
       }
     }
   });
+
+  $(document).ready(function() {
+    $("#myCarousel").on("slide.bs.carousel", function(e) {
+      var $e = $(e.relatedTarget);
+      var idx = $e.index();
+      var itemsPerSlide = 3;
+      var totalItems = $(".carousel-item").length;
+  
+      if (idx >= totalItems - (itemsPerSlide - 1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i = 0; i < it; i++) {
+          // append slides to end
+          if (e.direction == "left") {
+            $(".carousel-item")
+              .eq(i)
+              .appendTo(".carousel-inner");
+          } else {
+            $(".carousel-item")
+              .eq(0)
+              .appendTo($(this).find(".carousel-inner"));
+              console.log("update");
+          }
+        }
+      }
+    });
+  });
+
+
+$(document).ready(function() {
+  var items =$(".carousel-item").length;
+  if ($(window).width() > 768) {
+    if(items<3){
+      $('.carousel-control-next, .carousel-control-prev').hide()
+    }
+  }
+  if(items<1){
+    $('.carousel-control-next, .carousel-control-prev').hide()
+  }
+});
+
+  
+
+  $('.card-flip').on('click', 
+  function(){
+    $('.card-flip').not(this).removeClass('flipped');
+    $(this).toggleClass('flipped');
+    if ($(this).hasClass('flipped'))
+    {
+      $('.carousel').carousel('pause')
+  }
+  else{
+    $('.carousel').carousel('cycle')
+  }
+    
+  }
+);
+  
+  
   
 
 

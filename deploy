@@ -1,8 +1,10 @@
 #!/bin/bash
 # My first script
 
-echo "Hello World!"
+echo "Deploying to Heroku!"
 git add *
-git commit -m "database changes"
+git commit -m "$1"
 git push
 git push heroku master
+
+

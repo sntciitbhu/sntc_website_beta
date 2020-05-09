@@ -12,8 +12,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href=" {{club.logo_img.url}}" rel="icon">
-  <link href="{{club.logo_img.url}}" rel="apple-touch-icon">
+  <link href=" {{club.logo_img_black.url}}" rel="icon">
+  <link href="{{club.logo_img_black.url}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link
@@ -40,8 +40,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <a href="index.html" class="hero-logo" data-aos="zoom-in"><img
-          src=" {{club.logo_img.url}}" alt=""></a>
+      <a href="index.html" class="hero-logo" data-aos="zoom-in"><img src=" {{club.logo_img.url}}" alt=""></a>
       <h1 data-aos="zoom-in">Welcome To {{club.name}} </h1>
       <h2 data-aos="fade-up">{{club.tagline}}</h2>
       <a data-aos="fade-up" href="#about" class="btn-get-started scrollto">Get Started</a>
@@ -55,8 +54,7 @@
 
       <!-- The main logo is shown in mobile version only. The centered nav-logo in nav menu is displayed in desktop view  -->
       <div class="logo d-block d-lg-none">
-        <a href="index.html"><img src=" {{club.logo_img.url}}"
-            alt=""></a>
+        <a href="index.html"><img src=" {{club.logo_img_black.url}}" alt=""></a>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -67,20 +65,20 @@
           <li><a href="#workshops">Workshops</a></li>
 
 
-          <li class="nav-logo"><img src=" {{club.logo_img.url}}" alt="" class="img-fluid"></li>
+          <li class="nav-logo"><img src=" {{club.logo_img_black.url}}" alt="" class="img-fluid"></li>
 
           <li><a href="#events">Events</a></li>
           <li><a href="#contact">Contact</a></li>
           <li class="drop-down"><a href="">clubs</a>
             <ul>
-              
-                  <li><a href="/clubs/aero">Aero-Modelling Club</a></li>
-                  <li><a href="/clubs/astro">Astronomy Club</a></li>
-                  <li><a href="/clubs/biz">Business Club</a></li>
-                  <li><a href="/clubs/csi">Club of Sustainability and Innovation</a></li>
-                  <li><a href="/clubs/cops">Club of Programmers</a></li>
-                  <li><a href="/clubs/robo">Robotics Club</a></li>
-                  <li><a href="/clubs/sae">Society of Automotive Engineering</a></li>
+
+              <li><a href="/clubs/aero">Aero-Modelling Club</a></li>
+              <li><a href="/clubs/astro">Astronomy Club</a></li>
+              <li><a href="/clubs/biz">Business Club</a></li>
+              <li><a href="/clubs/csi">Club of Sustainability and Innovation</a></li>
+              <li><a href="/clubs/cops">Club of Programmers</a></li>
+              <li><a href="/clubs/robo">Robotics Club</a></li>
+              <li><a href="/clubs/sae">Society of Automotive Engineering</a></li>
 
 
             </ul>
@@ -131,482 +129,321 @@
             </div>
           </div>
         </div>
-      </div>>
-      <!-- End About Us Section -->
-
-      <!-- ======= Highlights Section ======= -->
-
-      <div id="explore">
-        <section id="testimonials" class="testimonials"
-          style="background-image: url('{% static '/clubs/img/'|add:key|add:'/testimonials-bg.jpg' %}')">
-          <div class="container" data-aos="zoom-in">
-            <div class="section-title" data-aos="fade-up">
-              <h2>Explore</h2>
-            </div>
-
-            <div class="row quote-icon">
-              <i class="bx bxs-quote-left"></i>
-
-              <h3>{{club.quote}}</h3>
-              <i class="bx bxs-quote-right"></i>
-
-            </div>
-            <div class="owl-carousel testimonials-carousel">
-              {%for highlight in highlights%}
-
-              <div class="testimonial-item">
-                <h2>{{highlight.name}}</h2>
-                <p>{{highlight.details}}
-                </p>
-              </div>
-              {%endfor%}
-
-            </div>
-
-          </div>
-        </section><!-- End Highlights Section -->
       </div>
+    </section>
+    <!-- End About Us Section -->
 
-      <div id="workshops">
+    <!-- ======= Highlights Section ======= -->
 
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
-          <div class="container">
-
-            <div class="section-title" data-aos="fade-up">
-              <h2>Workshops</h2>
-              <p>Interactive Sessions on various Topics by the Maters of the fields</p>
-            </div>
-            <div class="row">
-              <div class="addscroll col-lg-8 order-2 order-lg-1" data-aos="fade-right">
-
-                {% for workshop in workshops %}
-                <div class="icon-box mt-1 mt-lg-0">
-                  {% if workshop.presentation != 'null' %}
-                  <a href="{{workshop.presentation}}" target="_blank">
-                    <i class="bx bx-download"></i></a>
-                  {% endif %}
-
-                  <div class="circle">
-                    <p>
-                      <span style="font-size:30px; font-weight: bold">{{workshop.date.day}}</span>
-                      <span style="font-size:20px;">{{ workshop.date|date:'M'}}</span>
-                    </p>
-                  </div>
-                  <h4>{{workshop.name}}
-                    {% if workshop.date > timenow %}
-                    <span class="badge badge-success">Upcoming</span>
-                    {% endif %}
-                  </h4>
-
-                  <p>{{workshop.details}}
-                    {% if workshop.date > timenow %}
-
-                    <br><span class="badge badge-default">Time : {{workshop.date.hour}}:{{workshop.date.minute}}</span>
-                    <span class="badge badge-default">Location : </span>
-                    {% endif %}
-                  </p>
-                </div>
-                {% endfor %}
-              </div>
-              <div class="image col-lg-4 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                <img src=" {% static 'clubs/img/'|add:key|add:'/'|add:key|add:'_workshop.jpg' %}" class="img-fluid"
-                  alt="">
-
-              </div>
-
-
-            </div>
-
-          </div>
-        </section>
-
-
-        <section id="services_mobile" class="services">
-          <div class="container">
-            <div class="section-title" data-aos="fade-up">
-              <h2>Workshops</h2>
-              <p>Interactive Sessions on various Topics by the Maters of the fields</p>
-            </div>
-            <div class="row">
-              <div class="addscroll col-lg-8 order-2 order-lg-1" data-aos="fade-right">
-                {% for workshop in workshops %}
-                <div class="icon-box mt-1 mt-lg-0">
-                  {% if workshop.presentation != 'null' %}
-                  <a href="{{workshop.presentation}}" target="_blank">
-                    <i class="bx bx-download"></i></a>
-                  {% endif %}
-                  <div class="circle">
-                    <p>
-                      <span style="font-size:30px; font-weight: bold">{{workshop.date.day}}</span>
-                      <span style="font-size:20px;">{{ workshop.date|date:'M'}}</span>
-                    </p>
-                  </div>
-                  <h4>{{workshop.name}}
-                    {% if workshop.date > timenow %}
-                    <span class="badge badge-success">Upcoming</span>
-                    {% endif %}
-                  </h4>
-
-                  <p>{{workshop.details}}
-                    {% if workshop.date > timenow %}
-
-                    <br><span class="badge badge-default">Time : {{workshop.date.hour}}:{{workshop.date.minute}}</span>
-                    <span class="badge badge-default">Location : </span>
-                    {% endif %}
-                  </p>
-                </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- End Services Section -->
-      </div>
-
-
-      <div id="events">
-        <!-- ======= Events Section ======= -->
-        <!-- ======= Featured -  Section ======= -->
-        <section id="featured" class="featured">
-          <div class="container-fluid">
-            <div class="section-title" data-aos="fade-up">
-              <h2>Events</h2>
-              <p>To make learning Fun</p>
-            </div>
-            <div class="row justify-content-md-center">
-              <div class="col-lg-8 col-sm-12" data-aos="fade-right">
-                <div class="tab-content">
-                  {% for event in events %}
-                  {% if forloop.first %}
-                  <div class="tab-pane active show " id="tab-{{forloop.counter}}" data-aos="fade-up"
-                    data-aos-delay="100">
-                    {%else%}
-                    <div class="tab-pane" id="tab-{{forloop.counter}}" data-aos="fade-up" data-aos-delay="100">
-                      {%endif%}
-
-                      <div class="row ">
-                        <div class="col-lg-7 col-sm-12 details" data-aos="fade-right">
-                          <div class="row ">
-                            <div class="event-image">
-                              <img src="{{event.image.url}}" class="img-fluid" alt="">
-                            </div>
-                            <p></p>
-                            <p>{{event.details|safe}}</p>
-                          </div>
-                        </div>
-                        <div class="col-lg-5 col-sm-12 col-md-4 details-tab ">
-                          <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                            {% with closeday as date_registraion_close.day-4 %}
-
-                            {% if event.date_registration_open.day > timenow.day %}
-                            <span class="recommended-badge">Registrations open
-                              {{event.date_registration_open.date}}</span>
-                            {% elif event.date_registration_open.day < timenow.day and closeday > timenow.day  %}
-                            <span class="recommended-badge">Registrations open</span>
-                            {% elif event.date_registration_open.day < timenow.day and event.date_registration_close.day > timenow.day  %}
-                            <span class="recommended-badge">Registrations closing soon</span>
-                            {% else %}
-                            <span class="recommended-badge">Registrations closed</span>
-                            {%endif%}
-                            {%endwith%}
-
-
-                            <h3>{{event.name}}</h3>
-                            <div class="circle" style="background-image: url({% static 'clubs/img/date.png' %})" ;>
-                              <p> {{ event.date|date:'F'}}
-                              </p>
-                              <h4> {{event.date|date:'j'}}
-                              </h4>
-                            </div>
-                            <div class="icon-box mt-lg-0">
-                              <i class="bx bx-time"></i>
-                              <h4>Time : {{ event.date|date:'P'}} </h4>
-
-                            </div>
-                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                              <i class="bx bx-navigation"></i>
-                              <h4>Location : Coming Soon </h4>
-
-                            </div>
-                            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                              <i class="bx bx-group"></i>
-                              <h4>Team Size : {{ event.teamsize}}</h4>
-                            </div>
-                            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                              <i
-                                class="bx ewton’s third law was never so interesting before. An event preceded by a workshop, to start your high throttle journey and let the water push your own fabricated and designed rocket to breacbx-file"></i>
-                              <h4>File Repo : <a href="{{event.refrences_link}}" target="_blank"> Download
-                                </a></h4>
-                            </div>
-                            <div class="btn-wrap">
-
-                              {% if event.register_link != 'null' and event.date_registration_open < timenow and event.date_registration_close > timenow %}
-                              <a href="{{event.registration_link}}" class="btn-buy">Register Now</a>
-                              {% else %}
-                              <a class="btn-buy">Registerations Closed</a>
-                              {% endif %}
-
-                              {% if event.ps_link != 'null' %}
-                              <a href="{{event.ps_link}}" class="btn-buy">Problem Statement</a>
-                              {% else %}
-                              <a class="btn-buy">PS coming soon</a>
-                              {% endif %}
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {% if forloop.first %}
-
-                    </div>
-                    {%else%}
-                  </div>
-                  {%endif%}
-                  {%endfor%}
-
-                </div>
-              </div>
-
-
-              <div class="col-lg-2 mt-0 mt-lg-0 align-self-center" data-aos="fade-left">
-                <ul class="nav nav-tabs flex-column">
-                  <li class="nav-item">
-                    {% for event in events %}
-                    {% if forloop.first %}
-                    <a class="nav-link active show" data-toggle="tab" href="#tab-{{forloop.counter}}">
-                      <h4>{{event.name}}</h4>
-                    </a>
-                    {%else%}
-                    <a class="nav-link" data-toggle="tab" href="#tab-{{forloop.counter}}">
-                      <h4>{{event.name}}</h4>
-                    </a>
-                    {%endif%}
-                    {% endfor %}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section><!-- End Featured Section -->
-
-        <!-- ======= Featured - Mobile  Section ======= -->
-
-        <section id="featured-mobile" class="featured">
-          <div class="container-fluid">
-            <div class="section-title" data-aos="fade-up">
-              <h2>Events</h2>
-            </div>
-            <div class="row justify-content-md-center">
-              <div class="nav nav-tabs">
-                {% for event in events %}
-
-
-                {% if forloop.first %}
-                <a class="nav-link active show" data-toggle="tab" href="#tab-mobile-{{forloop.counter}}">
-                  <h4>{{event.name}}</h4>
-                </a>
-                {%else%}
-                <a class="nav-link" data-toggle="tab" href="#tab-mobile-{{forloop.counter}}">
-                  <h4>{{event.name}}</h4>
-                </a>
-                {%endif%}
-                {% endfor %}
-              </div>
-
-              <div class="col-lg-8 col-md-6 col-sm-12" data-aos="fade-right">
-                <div class="tab-content">
-                  {% for event in events %}
-                  {% if forloop.first %}
-                  <div class="tab-pane active show" id="tab-mobile-{{forloop.counter}}" data-aos="fade-up"
-                    data-aos-delay="100">
-                    {%else%}
-                    <div class="tab-pane" id="tab-mobile-{{forloop.counter}}" data-aos="fade-up" data-aos-delay="100">
-                      {%endif%}
-                      <div class="row">
-                        <div class=" lg-0 mt-0 col-sm-12  ">
-                          <div class="box" data-aos="zoom-in" data-aos-delay="100">
-
-                            <h3>{{event.name}}</h3>
-                            <div class="section1">
-                              <div class="event-image">
-                                <img src="{{event.image.url}}" class="img-fluid" alt="">
-                                <p>{{event.details|safe}}</p>
-                              </div>
-                            </div>
-                            <div class="section2">
-                              {% with closeday as date_registraion_close.day-4 %}
-
-                              {% if event.date_registration_open.day > timenow.day %}
-                              <span class="recommended-badge">Registrations open
-                                {{event.date_registration_open.date}}</span>
-                              {% elif event.date_registration_open.day < timenow.day and closeday > timenow.day  %}
-                              <span class="recommended-badge">Registrations open</span>
-                              {% elif event.date_registration_open.day < timenow.day and event.date_registration_close.day > timenow.day  %}
-                              <span class="recommended-badge">Registrations closing soon</span>
-                              {% else %}
-                              <span class="recommended-badge">Registrations closed</span>
-                              {%endif%}
-                              {%endwith%}
-
-                              <div class="circle" style="background-image: url({% static 'clubs/img/date.png' %})" ;>
-                                <p> {{ event.date|date:'F'}}
-                                </p>
-                                <h4> {{event.date|date:'j'}}
-                                </h4>
-                              </div>
-                              <div class="icon-box mt-lg-0">
-                                <p>Time : {{ event.date|date:'P'}}
-                              </div>
-                              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <p>Location : Coming Soon </p>
-
-                              </div>
-                              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                                <p>Team Size : {{ event.teamsize}}
-                              </div>
-                              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                                <p>File Repo : <a href="{{event.refrences_link}}" target="_blank"> Download
-                                  </a></p>
-                              </div>
-                              <div class="btn-wrap">
-
-                                {% if event.register_link != 'null' and event.date_registration_open < timenow and event.date_registration_close > timenow %}
-                                <a href="{{event.registration_link}}" class="btn-buy">Register Now</a>
-                                {% else %}
-                                <a class="btn-buy">Registerations Closed</a>
-                                {% endif %}
-
-                                {% if event.ps_link != 'null' %}
-                                <a href="{{event.ps_link}}" class="btn-buy">Problem Statement</a>
-                                {% else %}
-                                <a class="btn-buy">PS coming soon</a>
-                                {% endif %}
-
-                              </div>
-                            </div>
-                            <button class="btn btn-buy myBtn" onclick="myFunction()" data-toggle="button">Details
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      {% if forloop.first %}
-
-                    </div>
-                    {%else%}
-                  </div>
-                  {%endif%}
-                  {%endfor%}
-                </div>
-
-              </div>
-
-
-            </div>
+    <div id="explore">
+      <section id="testimonials" class="testimonials"
+        style="background-image: url('{{club.explore_bacground_img.url}}')">
+        <div class="container" data-aos="zoom-in">
+          <div class="section-title" data-aos="fade-up">
+            <h2>Explore</h2>
           </div>
 
+          <div class="row quote-icon">
+            <i class="bx bxs-quote-left"></i>
 
+            <h3>{{club.quote}}</h3>
+            <i class="bx bxs-quote-right"></i>
 
-          <script>
-            function myFunction() {
-              var dots = document.getElementsByClassName("section1");
-              var moreText = document.getElementsByClassName("section2");
-              var btnText = document.getElementsByClassName("myBtn");
-              for (var i = 0; i < dots.length; i++) {
-
-                if (dots[i].style.display === "none") {
-                  dots[i].style.display = "inline";
-                  btnText[i].innerHTML = "Details";
-                  moreText[i].style.display = "none";
-                } else {
-                  dots[i].style.display = "none";
-                  btnText[i].innerHTML = "Back";
-                  moreText[i].style.display = "inline";
-                }
-              }
-            }
-          </script>
-
-
-
-        </section>
-
-
-      </div>
-
-      <!-- End Featured-mobile Section -->
-      <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact section-bg">
-        <div class="container">
-
-          <div class="section-title">
-            <h2>Contact</h2>
-            <p>We'd love to hear from you</p>
           </div>
+          <div class="owl-carousel testimonials-carousel">
+            {%for highlight in highlights%}
 
-          <div class="row">
-
-            <div class="col-lg-4">
-              <div class="info d-flex flex-column justify-content-center" data-aos="fade-right">
-                <div class="address">
-                  <i class="icofont-google-map"></i>
-                  <h4>Location:</h4>
-                  <p>{{club.club_room_location}}</p>
-                </div>
-
-                <div class="email">
-                  <i class="icofont-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>{{club.eamil}}</p>
-                </div>
-
-                <div class="phone">
-                  <i class="icofont-phone"></i>
-                  <h4>Call:</h4>
-                  <p>{{club.contact}}</p>
-                </div>
-              </div>
+            <div class="testimonial-item">
+              <h2>{{highlight.name}}</h2>
+              <p>{{highlight.details}}
+              </p>
             </div>
-
-            <div class="col-lg-8 mt-5 mt-lg-0">
-
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-left">
-                <div class="form-row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                      data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <div class="validate"></div>
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                      data-rule="email" data-msg="Please enter a valid email" />
-                    <div class="validate"></div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validate"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required"
-                    data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validate"></div>
-                </div>
-                <div class="mb-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
-              </form>
-
-            </div>
+            {%endfor%}
 
           </div>
 
         </div>
-      </section><!-- End Contact Section -->
+      </section><!-- End Highlights Section -->
+    </div>
+
+    <div id="workshops">
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services">
+        <div class="container">
+
+          <div class="section-title" data-aos="fade-up">
+            <h2>Workshops</h2>
+            <p>Interactive Sessions on various Topics by the Maters of the fields</p>
+          </div>
+          <div class="row">
+            <div class="addscroll col-lg-8 order-2 order-lg-1" data-aos="fade-right">
+
+              {% for workshop in workshops %}
+              <div class="icon-box mt-1 mt-lg-0">
+                {% if workshop.presentation != 'null' %}
+                <a href="{{workshop.presentation}}" target="_blank">
+                  <i class="bx bx-download"></i></a>
+                {% endif %}
+
+                <div class="circle">
+                  <p>
+                    <span style="font-size:30px; font-weight: bold">{{workshop.date.day}}</span>
+                    <span style="font-size:20px;">{{ workshop.date|date:'M'}}</span>
+                  </p>
+                </div>
+                <h4>{{workshop.name}}
+                  {% if workshop.date > timenow %}
+                  <span class="badge badge-success">Upcoming</span>
+                  {% endif %}
+                </h4>
+
+                <p>{{workshop.details}}
+                  {% if workshop.date > timenow %}
+
+                  <br><span class="badge badge-default">Time : {{workshop.date.hour}}:{{workshop.date.minute}}</span>
+                  <span class="badge badge-default">Location : </span>
+                  {% endif %}
+                </p>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="image col-lg-4 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src=" {{club.workshop_img.url}}" class="img-fluid"
+                alt="">
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <section id="services_mobile" class="services">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>Workshops</h2>
+            <p>Interactive Sessions on various Topics by the Maters of the fields</p>
+          </div>
+          <div class="row">
+            <div class="addscroll col-lg-8 order-2 order-lg-1" data-aos="fade-right">
+              {% for workshop in workshops %}
+              <div class="icon-box mt-1 mt-lg-0">
+                {% if workshop.presentation != 'null' %}
+                <a href="{{workshop.presentation}}" target="_blank">
+                  <i class="bx bx-download"></i></a>
+                {% endif %}
+                <div class="circle">
+                  <p>
+                    <span style="font-size:30px; font-weight: bold">{{workshop.date.day}}</span>
+                    <span style="font-size:20px;">{{ workshop.date|date:'M'}}</span>
+                  </p>
+                </div>
+                <h4>{{workshop.name}}
+                  {% if workshop.date > timenow %}
+                  <span class="badge badge-success">Upcoming</span>
+                  {% endif %}
+                </h4>
+
+                <p>{{workshop.details}}
+                  {% if workshop.date > timenow %}
+
+                  <br><span class="badge badge-default">Time : {{workshop.date.hour}}:{{workshop.date.minute}}</span>
+                  <span class="badge badge-default">Location : </span>
+                  {% endif %}
+                </p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+    </div>
+
+
+    <!-- ======= Events Section ======= -->
+    <!-- ======= Featured -  Section ======= -->
+    <section id="events" class="featured">
+      <div class="container-fluid">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Events</h2>
+          <p>To make learning Fun</p>
+        </div>
+
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="hover" data-interval="false">
+          <div class="carousel-inner row justify-content-center w-100 mx-auto">
+            {% for event in events %}
+
+            <div class="carousel-item col-md-4 active ">
+              <div class="card-flip">
+                <div class="flip">
+                  <div class="front">
+                    <!-- front content -->
+                    <div class="card">
+                      <h3>{{event.name}}</h3>
+                      <img src="{{event.image.url}}" class="img-fluid" alt="">
+                      <p>{{event.details|safe}}</p>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <!-- back content -->
+                    <div class="card">
+                      {% with closeday as date_registraion_close.day-4 %}
+
+                      {% if event.date_registration_open.day > timenow.day %}
+                      <span class="recommended-badge">Registrations open
+                        {{event.date_registration_open.date}}</span>
+                      {% elif event.date_registration_open.day < timenow.day and closeday > timenow.day  %}
+                      <span class="recommended-badge">Registrations open</span>
+                      {% elif event.date_registration_open.day < timenow.day and event.date_registration_close.day > timenow.day  %}
+                      <span class="recommended-badge">Registrations closing soon</span>
+                      {% else %}
+                      <span class="recommended-badge">Registrations closed</span>
+                      {%endif%}
+                      {%endwith%}
+
+                      <div class="circle" style="background-image: url({% static 'clubs/img/date.png' %})" ;>
+                        <p> {{ event.date|date:'F'}}
+                        </p>
+                        <h4> {{event.date|date:'j'}}
+                        </h4>
+                      </div>
+                      <div class="icon-box mt-lg-0">
+                        <i class="bx bx-time"></i>
+
+                        <p>Time : {{ event.date|date:'P'}}</p>
+                      </div>
+                      <div class="icon-box">
+                        <i class="bx bx-navigation"></i>
+
+                        <p>Location : Coming Soon </p>
+
+                      </div>
+                      <div class="icon-box">
+                        <i class="bx bx-group"></i>
+
+                        <p>Team Size : {{ event.teamsize}}
+                      </div>
+                      <div class="icon-box">
+                        <i class="bx bx-file"></i>
+
+                        <p>Refrences : <a href="{{event.refrences_link}}" target="_blank"> Download
+                          </a></p>
+                      </div>
+                      <div class="btn-wrap">
+
+                        {% if event.register_link != 'null' and event.date_registration_open < timenow and event.date_registration_close > timenow %}
+                        <a href="{{event.registration_link}}" class="btn-buy">Register Now</a>
+                        {% else %}
+                        <a class="btn-buy">Registerations Closed</a>
+                        {% endif %}
+
+                        {% if event.ps_link != 'null' %}
+                        <a href="{{event.ps_link}}" class="btn-buy">Problem Statement</a>
+                        {% else %}
+                        <a class="btn-buy">PS coming soon</a>
+                        {% endif %}
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+
+      </div>
+    </section>
+    <!-- End Featured Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>We'd love to hear from you</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="info d-flex flex-column justify-content-center" data-aos="fade-right">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>{{club.club_room_location}}</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>{{club.eamil}}</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>{{club.contact}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-left">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                    data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                    data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                  data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required"
+                  data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
 
 
 

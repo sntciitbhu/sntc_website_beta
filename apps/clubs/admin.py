@@ -37,10 +37,11 @@ class FilterDetails(admin.ModelAdmin):
         }
 
     fieldsets = [
-        ("About The Club", {'fields': ["name","about","tagline","quote","logo_img"]}),
+        ("About The Club", {'fields': ["name","about","tagline","quote",("logo_img","logo_img_black")]}),
         ("External Links", {"fields": ["facebook","twitter","insta","git","youtube","linkedin"]}),
         ("Contact Us", {"fields": ["club_room_location","contact","email"]}) ,       
-        ("Club Head", {"fields": ["user"]})        
+        ("Other Details",{"fields":["explore_bacground_img", "workshop_img"]  }),
+        ("Club Head", {"fields": ["user"]}),        
     ]
     inlines = [
         InputImages,

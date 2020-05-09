@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 class Form(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE, default = None, blank=True, null=True )
     name = models.CharField(max_length=50, default = None)
+    def __str__(self):
+        return self.name
 
 
 class InputField(models.Model):
