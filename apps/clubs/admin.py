@@ -26,29 +26,40 @@ class FilterDetails(admin.ModelAdmin):
             return True 
         return obj.user == request.user or request.user.is_superuser
 
-    def get_form(self, request, obj=None, **kwargs):
-        self.exclude = []
-        if not request.user.is_superuser:
-            self.exclude.append('user') #here!
-        return super(FilterDetails, self).get_form(request, obj, **kwargs)
-    
-    formfield_overrides = {
-        models.TextField: {'widget': TinyMCE()},
-        }
-
-    fieldsets = [
+    superuser_fieldsets = [
         ("About The Club", {'fields': ["name","about","tagline","quote",("logo_img","logo_img_black")]}),
         ("External Links", {"fields": ["facebook","twitter","insta","git","youtube","linkedin"]}),
         ("Contact Us", {"fields": ["club_room_location","contact","email"]}) ,       
         ("Other Details",{"fields":["explore_bacground_img", "workshop_img"]  }),
-        ("Club Head", {"fields": ["user"]}),        
+        ("Club Head", {"fields": ["user"]}),
     ]
+    nonsuperuser_fieldsets = [
+        ("About The Club", {'fields': ["name","about","tagline","quote",("logo_img","logo_img_black")]}),
+        ("External Links", {"fields": ["facebook","twitter","insta","git","youtube","linkedin"]}),
+        ("Contact Us", {"fields": ["club_room_location","contact","email"]}) ,       
+        ("Other Details",{"fields":["explore_bacground_img", "workshop_img"]  }),
+    ]
+
+    def get_fieldsets(self, request, obj=None):
+        if request.user.is_superuser:
+            fieldsets = self.superuser_fieldsets
+        else:
+            fieldsets = self.nonsuperuser_fieldsets
+        return fieldsets
+
+
+    def get_form(self, request, obj=None, **kwargs):
+        self.fieldsets = self.get_fieldsets(request ,obj)
+        return super(FilterDetails, self).get_form(request, obj, **kwargs)
+
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMCE()},
+        }
+
     inlines = [
         InputImages,
     ]
-
-
-
+    
 class FilterImages(admin.ModelAdmin): 
     def save_model(self, request, obj, form, change):
         if getattr(obj, 'user', None) is None:  
