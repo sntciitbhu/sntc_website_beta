@@ -178,14 +178,12 @@
           </div>
           <div class="row">
             <div class="addscroll col-lg-8 order-2 order-lg-1" data-aos="fade-right">
-
               {% for workshop in workshops %}
               <div class="icon-box mt-1 mt-lg-0">
                 {% if workshop.presentation != 'null' %}
                 <a href="{{workshop.presentation}}" target="_blank">
                   <i class="bx bx-download"></i></a>
                 {% endif %}
-
                 <div class="circle">
                   <p>
                     <span style="font-size:30px; font-weight: bold">{{workshop.date.day}}</span>
@@ -197,7 +195,6 @@
                   <span class="badge badge-success">Upcoming</span>
                   {% endif %}
                 </h4>
-
                 <p>{{workshop.details}}
                   {% if workshop.date > timenow %}
 
@@ -211,12 +208,8 @@
             <div class="image col-lg-4 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
               <img src=" {{club.workshop_img.url}}" class="img-fluid"
                 alt="">
-
             </div>
-
-
           </div>
-
         </div>
       </section>
 

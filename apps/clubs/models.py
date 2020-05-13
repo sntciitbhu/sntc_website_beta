@@ -10,7 +10,7 @@ from PIL import Image
 from django.core.files import File
 
 
-def modify (image, size_x, size_y, file_type):
+def modify (image, size_x, size_y, file_type, img_name):
     im=Image.open(image)
     size = size_x,size_y
     im.thumbnail(size)
@@ -18,7 +18,7 @@ def modify (image, size_x, size_y, file_type):
     if (file_type == "JPEG"):
         im= im.convert('RGB')
     im.save(im_io, file_type, quality=60)
-    new_image = File(im_io,name=image.name)
+    new_image = File(im_io,name=img_name+image.name)
     return new_image
 
 
@@ -62,10 +62,10 @@ class details(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.logo_img = modify(self.logo_img,400,400,'PNG')
-        self.logo_img_black = modify(self.logo_img_black,100,50,'PNG')
-        self.explore_bacground_img = modify(self.explore_bacground_img,1400,600,'JPEG')
-        self.workshop_img = modify(self.workshop_img,450,800,'JPEG')
+        self.logo_img = modify(self.logo_img,400,400,'PNG',self.user.username+"_logo_img_")
+        self.logo_img_black = modify(self.logo_img_black,100,50,'PNG',self.user.username+"_logo_img_black_")
+        self.explore_bacground_img = modify(self.explore_bacground_img,1400,600,'JPEG',self.user.username+"_explore_bacground_img_")
+        self.workshop_img = modify(self.workshop_img,450,800,'JPEG',self.user.username+"_workshop_img_")
         super().save(*args, **kwargs)
 
 

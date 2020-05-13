@@ -3,23 +3,18 @@ from django.db import models
 import nested_admin
 
 
-from .models import InputField,UploadField,SelectionField,Option,Form
+from .models import Field,Option,Form
 
-class InputFieldDisplay(nested_admin.NestedTabularInline):
-    model = InputField
-    extra=0
-
-class UploadFieldDisplay(nested_admin.NestedTabularInline):
-    model = UploadField
-    extra=0
 
 class OptionsDisplay(nested_admin.NestedTabularInline):
     model = Option
     extra = 1
 
-class SelectionFieldDisplay(nested_admin.NestedTabularInline):
-    model = SelectionField
-    extra=0
+
+class FieldDisplay(nested_admin.NestedTabularInline):
+    model = Field
+    extra = 0
+    
     inlines = [
         OptionsDisplay
     ]
@@ -29,18 +24,23 @@ class HiddenModels(nested_admin.NestedModelAdmin):
     def has_module_permission(self, request):
         return False
 
+
+
+    
+
+
 class FormDisplay(nested_admin.NestedModelAdmin):
     def has_module_permission(self, request):
         return False
+
+    change_form_template = 'forms_change_form.html'
+
+        
     inlines = [
-        InputFieldDisplay,
-        UploadFieldDisplay,
-        SelectionFieldDisplay,
+        FieldDisplay
     ]
 
-admin.site.register(InputField, HiddenModels)
-admin.site.register(UploadField, HiddenModels)
-admin.site.register(SelectionField,HiddenModels)
+admin.site.register(Field,HiddenModels)
 admin.site.register(Option,HiddenModels)
 admin.site.register(Form,FormDisplay)
 

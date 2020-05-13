@@ -6,64 +6,69 @@ from django.contrib.auth.models import User
 
 class Form(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE, default = None, blank=True, null=True )
-    name = models.CharField(max_length=50, default = None)
+    name = models.CharField(max_length=50)
     def __str__(self):
         return self.name
 
 
-class InputField(models.Model):
-    form = models.ForeignKey(Form, on_delete = models.CASCADE, default = None, blank=True )
+class Field(models.Model):
+    fieldset = models.ForeignKey(Form, on_delete = models.CASCADE, default = None, blank=True,related_name = "fields" )
     type_choices = ( 
-    ("Text Small", "text"), 
-    ("Date", "date"), 
-    ("E-mail", "email"), 
-    ("Number", "number"), 
-    ("Link", "url"), 
-    ("Text Large", "textarea"), 
+    ("text","Text Small"), 
+    ( "date","Date"), 
+    ( "email","E-mail"), 
+    ( "number","Number"), 
+    ( "url","Link"), 
+    ( "textarea","Text Large"), 
+    ("image", "Image"), 
+    ("file", "File"),
+    ("dropdown","Drop Down"), 
+    ("radio","Single Option"), 
+    ("checkbox","Multiple Option"), 
     ) 
-    type = models.CharField(choices = type_choices,max_length=50)
-    name = models.CharField(max_length=50, default = None)
-    default_value = models.CharField(max_length=500, default = None, blank=True)
-    placeholder_value =  models.CharField(max_length=500, default = None)
+    Serialno = models.PositiveIntegerField(null=True, blank=True)
     required = models.BooleanField(default=False)
+    name = models.CharField(max_length=50, default = None)
+    type = models.CharField(choices = type_choices,max_length=50)
+    default_value = models.CharField(max_length=500, default = None, blank=True)
     readOnly = models.BooleanField(default=False)
-    Validation_Error = models.CharField(max_length=100, default = None)
+    uploadToURL = models.URLField(blank = True, default = None)
+
     def __str__(self):
         return self.name
 
 
-class UploadField(models.Model):
-    form = models.ForeignKey(Form, on_delete = models.CASCADE, default = None, blank=True )
-    type_choices = ( 
-    ("Image", "image"), 
-    ("File", "file"), 
-    ) 
-    type = models.CharField(choices = type_choices,max_length=50)
-    name = models.CharField(max_length=50, default = None)
-    placeholder_value =  models.CharField(max_length=500, default = None)
-    required= models.BooleanField(default=True)
-    uploadToURL = models.URLField()
-    def __str__(self):
-        return self.name
+# class UploadField(models.Model):
+#     Serialno = models.PositiveIntegerField(null=True, blank=True)
 
-class SelectionField(models.Model):
-    form = models.ForeignKey(Form, on_delete = models.CASCADE, default = None, blank=True )
-    type_choices = ( 
-    ("Drop Down", "text"), 
-    ("Single Option", "radio"), 
-    ("Multiple Option", "checkbox"), 
-    ) 
-    type = models.CharField(choices = type_choices,max_length=50)
-    name = models.CharField(max_length=50, default = None)
-    placeholder_value =  models.CharField(max_length=500, default = None)
-    required= models.BooleanField(default=True)
-    def __str__(self):
-        return self.name
+#     form = models.ForeignKey(Fieldsets, on_delete = models.CASCADE, default = None, blank=True,related_name = "uploadfields" )
+#     type_choices = ( 
+#     ("image", "Image"), 
+#     ("file", "File"), 
+#     ) 
+#     type = models.CharField(choices = type_choices,max_length=50)
+#     name = models.CharField(max_length=50, default = None)
+#     placeholder_value =  models.CharField(max_length=500, default = None)
+#     required= models.BooleanField(default=True)
+#     def __str__(self):
+#         return self.name
+
+# class SelectionField(models.Model):
+#     Serialno = models.PositiveIntegerField(null=True, blank=True)
+#     form = models.ForeignKey(Fieldsets, on_delete = models.CASCADE, default = None, blank=True, related_name = "selectionfields" )
+#     type_choices = ( 
+
+#     ) 
+#     type = models.CharField(choices = type_choices,max_length=50)
+#     name = models.CharField(max_length=50, default = None)
+#     placeholder_value =  models.CharField(max_length=500, default = None)
+#     required= models.BooleanField(default=True)
+#     def __str__(self):
+#         return self.name
 
 class Option(models.Model):
     name = models.CharField(max_length=50, default = None)
-    value = models.CharField(max_length=50, default = None)
-    options = models.ForeignKey(SelectionField, on_delete = models.CASCADE, default = None )
+    options = models.ForeignKey(Field, blank = True, null= True, on_delete = models.CASCADE, default = None )
 
     def __str__(self):
         return self.name

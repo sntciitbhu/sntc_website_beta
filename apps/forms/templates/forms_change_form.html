@@ -1,0 +1,66 @@
+{% extends "admin:admin/change_form.html" %}
+
+{% block admin_change_form_document_ready %}
+{{block.super}}
+<script type="text/javascript">
+    django.jQuery(document).ready(function($){
+
+// jQuery code is in here
+
+    $('body').on("change",".form-row .field-type select ", function() {
+    var fields = {
+        "text": ".field-readOnly, .field-default_value ,",
+        "date": ".field-default_value ,",
+        "email": ".field-default_value ,",
+        "number": ".field-default_value ,",
+        "url": [],
+        "textarea": [],
+        "image": ".field-uploadToURL ,",
+        "file": ".field-uploadToURL ,",
+        "dropdown": [],
+        "radio": [],
+        "checkbox": [],
+    }
+
+    // ("text","Text Small"), 
+    // ( "date","Date"), 
+    // ( "email","E-mail"), 
+    // ( "number","Number"), 
+    // ( "url","Link"), 
+    // ( "textarea","Text Large"), 
+    // ("image", "Image"), 
+    // ("file", "File"),
+    // ("dropdown","Drop Down"), 
+    // ("radio","Single Option"), 
+    // ("checkbox","Multiple Option"),    
+    
+
+    // default_value = models.CharField(max_length=500, default = None, blank=True)
+    // readOnly = models.BooleanField(default=False,default = None, blank=True)
+    // uploadToURL = models.URLField(blank = True, default = None, default = None, blank=True)
+
+    // jQuery
+    var selectedVal = $(this).find(':selected').val();
+    console.log(selectedVal);
+
+    $(this).parent().nextAll().css({"visibility":"hidden","pointer-events":"none"});
+    $(this).closest("tr").next().hide();
+    $(this).parent().nextAll(fields[selectedVal]+" .delete").css({"visibility":"visible","pointer-events":"all"});
+
+    if(selectedVal=="dropdown" || selectedVal=="radio" || selectedVal=="checkbox")
+    {
+        $(this).closest("tr").next().show();
+    }
+
+
+
+
+        
+    });
+
+
+    });
+
+
+</script>
+{% endblock %}

@@ -73,5 +73,9 @@ admin.site.register(Group, GroupAdmin)
 
 
 
+from .models import Profile
+admin.site.register(Profile)
+
+
 
 

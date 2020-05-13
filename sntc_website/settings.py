@@ -8,7 +8,8 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
-"""
+#AIzaSyDFw5Zscb_8RUJhZtAZ-TZfRePbJC_s06s - Cliend Ip
+# """
 
 import os
 import dj_database_url
@@ -49,7 +50,6 @@ INSTALLED_APPS = [
     'apps.technex.apps.TechnexConfig',
     'apps.forms.apps.FormsConfig',
 
-    'django_cleanup.apps.CleanupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
