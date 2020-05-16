@@ -833,3 +833,22 @@
     display: none; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+#profile .page-title-header .edit-button-wrapper{
+  text-align: center;
+  margin: auto;
+
+}
+
+
+#save-profile ,#cancel-profile{
+  display: none;
+  margin:auto;
+}
+
+#edit-profile{
+  display: block;
+  margin:auto;
+
+}

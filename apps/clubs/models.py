@@ -82,7 +82,7 @@ class about_images(models.Model):
 
     def save(self, *args, **kwargs):
 
-        self.photo = modify(self.photo,800,600,'logo_'+self.name,'JPEG')
+        self.photo = modify(self.photo,800,600,'JPEG','about_images_'+self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -114,13 +114,13 @@ class events(models.Model):
     teamsize = models.IntegerField('max Team size',default = 1)
     refrences_link = models.URLField(max_length=500, default= None, blank=True)
     ps_link = models.URLField(max_length=500, default= 'null', blank=True)
-    registration_form = models.ForeignKey(Form, on_delete = models.SET_DEFAULT, default = None, blank=True,help_text="The Basic Profile Information will be taken automatically on registratoin. Cretate a form only for extra info needed. Select a blank form if you do not need any other Details" )
+    registration_form = models.OneToOneField(Form, on_delete = models.SET_DEFAULT, default = None, blank=True,help_text="The Basic Profile Information will be taken automatically on registratoin. Cretate a form only for extra info needed. Select a blank form if you do not need any other Details" )
 
     def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.image = modify(self.image,600,450,'logo_'+self.name,'JPEG')
+        self.image = modify(self.image,600,450,'JPEG','events_'+self.name)
         super().save(*args, **kwargs)
 
 

@@ -26,12 +26,22 @@ class user():
         data = json.dumps(response)
         print(data)
         self.response = response
-        response = requests.post(self.url,data)
+        payload = {'action': 'createuser'}
+
+        response = requests.post(self.url,data =data, params = payload)
         vals = response.json()
-        # print (vals)
         self.details = vals
         return self.details
 
+    def update(self, response, action):
+        data = json.dumps(response)
+        print(data)
+        self.response = response
+        payload = {'action': action}
+        response = requests.post(self.url,data=data, params=payload)
+        vals = response.json()
+        self.details = vals
+        return self.details
 
 
 class superuser():

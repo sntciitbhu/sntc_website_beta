@@ -789,7 +789,13 @@ color:white;
 .featured .image-discription h2{
   text-align: center;
   text-decoration: underline;
-  padding: 40px;
+  padding: 20px;
+}
+
+.featured .image-discription h3{
+  text-align: center;
+  padding: 10px;
+  font-size: 24px;
 }
 
 .featured .image-discription p{

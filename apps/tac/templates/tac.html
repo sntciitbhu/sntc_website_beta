@@ -11,8 +11,8 @@
 	<meta content="tac" name="keywords">
 
 	<!-- Favicons -->
-	<link href="{%  static "tac/assets/img/favicon.png"  %}" rel="icon">
-	<link href="tacassets/img/apple-touch-icon.png" rel="apple-touch-icon">
+	<link href=" {{tac.logo_black.url}}" rel="icon">
+	<link href="{{tac.logo_black.url}}" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -29,13 +29,6 @@
 	<link href=" {%  static "tac/assets/css/style.css" %}" rel="stylesheet">
 
 
-
-	<!-- =======================================================
-  * Template Name: Knight - v2.0.0
-  * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -43,7 +36,7 @@
 	<!-- ======= Hero Section ======= -->
 	<section id="hero">
 		<div class="hero-container">
-			<a href="index.html" class="hero-logo" data-aos="zoom-in"><img src="{%  static "tac/assets/img/tac-logo.png" %}" alt=""></a>
+			<a href="index.html" class="hero-logo" data-aos="zoom-in"><img src="{{tac.logo.url}}" %}" alt=""></a>
 			<h1 data-aos="zoom-in">Welcome To {{tac.name}} </h1>
 			<h2 data-aos="fade-up">{{tac.tagline}}</h2>
 
@@ -54,44 +47,33 @@
 	<!-- ======= Header ======= -->
 	<header id="header" class="d-flex align-items-center">
 		<div class="container">
-
-			<!-- The main logo is shown in mobile version only. The centered nav-logo in nav menu is displayed in desktop view  -->
-			<div class="logo d-block d-lg-none">
-				<a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-			</div>
-
-			<nav class="nav-menu d-none d-lg-block">
-				<ul class="nav-inner">
-					<li class="active"><a href="index.html">Home</a></li>
-					<li class="drop-down"><a href="">About</a>
-						<ul>
-							<li><a href="#about">About Us</a></li>
-							<li><a href="#team">Team</a></li>
-
-							<li class="drop-down"><a href="#">Deep Drop</a>
-								<ul>
-									<li><a href="#">Deep Drop Down 1</a></li>
-									<li><a href="#">Deep Drop Down 2</a></li>
-									<li><a href="#">Deep Drop Down 3</a></li>
-									<li><a href="#">Deep Drop Down 4</a></li>
-									<li><a href="#">Deep Drop Down 5</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li><a href="#services">Services</a></li>
-
-					<li class="nav-logo"><a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a></li>
-
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#pricing">Pricing</a></li>
-					<li><a href="#contact">Contact</a></li>
-
-				</ul>
-			</nav><!-- .nav-menu -->
-
+	
+		  <!-- The main logo is shown in mobile version only. The centered nav-logo in nav menu is displayed in desktop view  -->
+		  <div class="logo d-block d-lg-none">
+			<a href="index.html"><img src="{{tac.logo_black.url}}" alt="" class="img-fluid"></a>
 		</div>
-	</header><!-- End Header -->
+	
+		  <nav class="nav-menu d-none d-lg-block">
+			<ul class="nav-inner">
+			  <li class="active"><a href="/">Home</a></li>
+			  <li><a href="#about">About</a></li>
+			  <li><a href="#facilities">Facilities</a></li>
+			  <li><a href="#projects">Projects</a></li>
+	
+	
+			  <li class="nav-logo"><a href="index.html"><img src="{{tac.logo_black.url}}" alt="" class="img-fluid"></a></li>
+	
+			  <li><a href="#portfolio">Bigbook</a></li>
+			  <li><a href="#teams">Teams</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			  <li><a href="/login">Login</a></li>
+	
+			</ul>
+		  </nav><!-- .nav-menu -->
+	
+		</div>
+	  </header>
+	  <!-- End Header -->
 
 	<main id="main">
 
@@ -119,14 +101,14 @@
 						<div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
 							{{tac.about_tac|safe}}
 						</div>
-						<div class="social-links">
-							{% if tac.facebook != '' %}<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>{% endif %}
-							{% if tac.twitter != '' %}<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>{% endif %}
-							{% if tac.insta != '' %}<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>{% endif %}
-							{% if tac.youtube != '' %}<a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>{% endif %}
-							{% if tac.linkedin != '' %}<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>{% endif %}
-							{% if tac.git != '' %}<a href="#" class="git"><i class="bx bxl-git"></i></a>{% endif %}
-						</div>
+						<div class="social-links" style="text-align: center;">
+							{% if tac.facebook != '' %}<a href="{{tac.facebook}}" class="twitter"><i class="bx bxl-facebook"></i></a>{% endif %}
+							{% if tac.twitter != '' %}<a href="{{tac.twitter}}" class="facebook"><i class="bx bxl-twitter"></i></a>{% endif %}
+							{% if tac.insta != '' %}<a href="{{tac.insta}}" class="instagram"><i class="bx bxl-instagram"></i></a>{% endif %}
+							{% if tac.youtube != '' %}<a href="{{tac.youtube}}" class="youtube"><i class="bx bxl-youtube"></i></a>{% endif %}
+							{% if tac.linkedin != '' %}<a href="{{tac.linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>{% endif %}
+							{% if tac.git != '' %}<a href="{{tac.git}}" class="git"><i class="bx bxl-git"></i></a>{% endif %}
+						  </div>
 					</div>
 				</div>
 			</div>
@@ -137,7 +119,7 @@
 
 
 		<!-- ======= Services Section ======= -->
-		<section id="services" class="services" style="background-image: url('{% static '/tac/img/facilities-bg.jpg' %}')">
+		<section id="facilities" class="services" style="background-image: url('{{tac.inventory_bg_image.url}}')">
 			<div class="container-fluid">
 
 				<div class="section-title" data-aos="fade-up">
@@ -154,9 +136,13 @@
 						<div class="row" data-aos="fade-up" data-aos-delay="100">
 							<div class="col-lg-12 d-flex justify-content-left">
 								<ul class="services-filters">
-									{% for category in inventory_category %}
-									<li class="tab" onclick="opentabs(event,'{{category.name}}')">{{category.name}}</li>
-									{%endfor%}
+									<select onchange="opentabs(event,this)">
+										<option value = "ALL">All</option>
+
+										{% for category in inventory_category %}
+										<option value = "{{category.name}}">{{category.name}}</option>
+										{%endfor%}
+									</select>
 									<input type="text" placeholder="Search..." onkeyup="search_items()" id="search_bar">
 								</ul>
 							</div>
@@ -165,24 +151,25 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th>Name</th>
-										<th>Available</th>
+										<th style="width: 90%;">Name</th>
+										<th style="width: 10%;">Issuable</th>
 									</tr>
 								</thead>
 								<tbody>
 									{% for item in inventory %}
 									<tr class=" item {{item.item_type}} ">
 										<td>{{item.name}}</td>
-										<td>{{item.issue_allowed}}</td>
+										{% if item.issue_allowed %}
+										<td style="text-align: center;"><i class="bx bxs-check-circle"></i></td>
+										{%else %}
+										<td style="text-align: center;"><i class="bx bxs-x-circle"></i></td>
+										{%endif%}
 									{%endfor%}
 
 									</tr>
 								</tbody>
 							</table>
 						</div>
-
-
-
 					</div>
 					<div class="guidelines col-lg-5">
 						<h2>Guidelines</h2>
@@ -203,7 +190,8 @@
 
 			</div>
 			<script>
-				function opentabs(evt, category) {
+				function opentabs(evt,category) {
+					category = category.value;
 					total_list = document.getElementsByClassName("item");
 					for (i = 0; i < total_list.length; i++) {
 						total_list[i].style.display = "none";
@@ -215,9 +203,8 @@
 					}
 
 
-					if (category.toUpperCase() == "ALL") {
+					if (category == "ALL") {
 						selection = document.getElementsByClassName("item");
-						console.log("is true")
 					} else {
 						selection = document.getElementsByClassName(category);
 					}
@@ -225,7 +212,6 @@
 
 					for (i = 0; i < selection.length; i++) {
 						selection[i].style.display = "";
-						console.log("in for")
 					}
 					evt.currentTarget.className += " active";
 
@@ -273,7 +259,7 @@
 				<div class="row">
 					<div class="col-lg-6" data-aos="fade-right">
 						<div class="image">
-							<img src="{% static "tac/img/projects.jpg" %} " class="img-fluid" alt="">
+							<img src="{{tac.project_image.url}} " class="img-fluid" alt="">
 						</div>
 					</div>
 					<div class="col-lg-6" data-aos="fade-left">
@@ -294,7 +280,7 @@
 
 
 		<!-- ======= Portfolio Section ======= -->
-		<section id="portfolio" class="portfolio" style="background-image: url('{% static '/tac/img/background2-bg.jpg' %}')">
+		<section id="portfolio" class="portfolio" style="background-image: url('{{tac.bigbook_bg_image.url}}')">
 			<div class="container">
 
 				<div class="section-title" data-aos="fade-up">
@@ -317,35 +303,40 @@
 
 				<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-					<div class="col-lg-3 col-md-6 col-sm-8 portfolio-item filter-app">
+					{% for project in project_list%}
+
+					<div class="col-lg-3 col-md-6 col-sm-8 portfolio-item filter-{{project.category.name}}">
 						<div class="portfolio-wrap">
-							<img src="{% static "tac/img/portfolio/portfolio-1.jpg" %}" class="img-fluid" alt="">
+							<img src="{{ project.image.url }}" class="img-fluid" alt="">
 
 							<div class="portfolio-info">
-								<h4>App 1</h4>
-								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal1">Read More</button>
+								<h4>{{project.name}}</h4>
+								<button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{project.name|lower|cut:" "}}">Read More</button>
 
 							</div>
 						</div>
 					</div>
+					{%endfor%}
 				</div>
 			</div>
 
 
+			{% for project in project_list%}
 
-			<div class="modal fade" id="modal1">
+			<div class="modal fade" id="{{project.name|lower|cut:" "}}">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<!-- Modal Header -->
 						<div class="modal-header">
-							<h4 class="modal-title">Project Name</h4>
+							<h4 class="modal-title">{{project.name}}</h4>
 						</div>
 						<!-- Modal body -->
 						<div class="modal-body">
-							<img src="{% static "tac/img/portfolio/portfolio-1.jpg" %}" class="img-fluid" alt="">
-							<p>details - dsblfjids fisdgac kfuhd cfsaugc hfsabckh afsviucgvfr oaxhfjavxcug vrxoufh svaxocfr octreouvcxorvxuweixrt cr crieclre cre wl ctbrql wxb trjwc j c vrgtci relbc hterbc trvoa chrxhavfchvrhec vjakvsfc frv ctg rectra ctl gpyvuq5 cprecbgrela cgrwe cbrei cp rea</p>
-							<li>maker details - 1</li>
-							<li>maker details - 2</li>
+							<img src="{{project.image.url}}" class="img-fluid" alt="">
+							<p>{{project.details|safe}}</p>
+							{% for student in project.students.all %}
+							<li>{{student.name}} ({{student.role}}) - {{student.contact}}</li>
+							{%endfor%}
 						</div>
 						<!-- Modal footer -->
 						<div class="modal-footer">
@@ -354,6 +345,8 @@
 					</div>
 				</div>
 			</div>
+			{%endfor%}
+
 
 
 		</section><!-- End Portfolio Section -->
@@ -361,63 +354,89 @@
 
 		<!-- ======= Featured Section ======= -->
 
-		<section id="featured" class="featured">
+		<section id="teams" class="featured">
 			<div class="container">
 				<div class="section-title" data-aos="fade-up">
 					<h2>Technical Teams</h2>
-					<p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga eum quidem</p>
+					<p>{{tac.technical_teams_content|safe}}</p>
 				</div>
 
 				<div class="row">
 					<div class="col-lg-8" data-aos="fade-right">
 						<div class="tab-content">
-							<div class="tab-pane active show" id="tab-1">
-								<img src="{% static "tac/img/tac_trident.png" %}" alt="" class="img-fluid">
+							{% for team in team_list%}
+							<div class="tab-pane {%if forloop.first%} active show {%endif%}" id="tab-{{forloop.counter}}">
+								<img src="{{team.image.url}}" alt="" class="img-fluid">
 								<div class="image-discription">
-									<h2>Team Trident</h2>
+									<h2>{{team.name}}</h2>
+									<h3>{{team.competetion_aim}}</h3>
 									<div class="details">
-										<p>ifoyabgvtabcir cogeuf c greouc brfecgyc ouhbgrjhc vgcjqv erjcre vckqrev cxgrqf oxcurqevgch qre ctxtre cxrqohv tochuqvr ctxo3v couhvrjhqcv trqho ctxioq gxtpciq43x cver qcuxhr qtxcr3q</p>
-										<li>team head - 1</li>
-										<li>team head - 2</li>
+										<p>{{team.details|safe}}</p>
+										<li><a data-toggle="modal" href="#{{team.name|lower|cut:" "}}">Team Members</a></li>
 									</div>
 								</div>
 							</div>
+							{%endfor%}
 						</div>
 					</div>
 
-
-
 					<div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-left">
 						<ul class="nav nav-tabs flex-column">
+							{% for team in team_list%}
 							<li class="nav-item">
 								<a class="nav-link active show" data-toggle="tab" href="#tab-1">
-									<h4>Modi sit est</h4>
-									<p>Quis excepturi porro totam sint earum quo nulla perspiciatis eius.</p>
+									<h4>{{team.name}}</h4>
 								</a>
 							</li>
-							<li class="nav-item mt-2">
-								<a class="nav-link" data-toggle="tab" href="#tab-2">
-									<h4>Unde praesentium sed</h4>
-									<p>Voluptas vel esse repudiandae quo excepturi.</p>
-								</a>
-							</li>
-							<li class="nav-item mt-2">
-								<a class="nav-link" data-toggle="tab" href="#tab-3">
-									<h4>Pariatur explicabo vel</h4>
-									<p>Velit veniam ipsa sit nihil blanditiis mollitia natus.</p>
-								</a>
-							</li>
-							<li class="nav-item mt-2">
-								<a class="nav-link" data-toggle="tab" href="#tab-4">
-									<h4>Nostrum qui quasi</h4>
-									<p>Ratione hic sapiente nostrum doloremque illum nulla praesentium id</p>
-								</a>
-							</li>
+							{%endfor%}
 						</ul>
 					</div>
 				</div>
 
 			</div>
+
+			{% for team in team_list%}
+
+			<div class="modal fade" id="{{team.name|lower|cut:" "}}">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">{{team.name}}</h4>
+						</div>
+
+						<!-- Modal body -->
+						<div class="modal-body">
+							<img src="{{team.team_photo.url}}" class="img-fluid" alt="">
+						<table style ="width: 100%; overflow: auto;margin-top: 30px;">
+							<thead style="font-weight: bold; ">
+								<tr>
+								<td>Name</td>
+								<td>Role</td>
+								<td>Contact</td>
+							</tr>
+							</thead>
+							{% for student in team.students.all %}
+							<tbody>
+								<tr>
+								<td>{{student.name}}</td>
+								<td>{{student.role}}</td>
+								<td>{{student.contact}}</td>
+							</tr>
+							</tbody>
+							{%endfor%}
+						</table>
+						</div>
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			{%endfor%}
+
+			
 		</section><!-- End Featured Section -->
 
 
@@ -427,7 +446,7 @@
 
 				<div class="section-title">
 					<h2>Contact</h2>
-					<p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga eum quidem</p>
+					<p>We would love to hear from you.</p>
 				</div>
 
 				<div class="row">
@@ -437,19 +456,19 @@
 							<div class="address">
 								<i class="icofont-google-map"></i>
 								<h4>Location:</h4>
-								<p>A108 Adam Street,<br>New York, NY 535022</p>
+								<p>{{tac.location}}</p>
 							</div>
 
 							<div class="email">
 								<i class="icofont-envelope"></i>
 								<h4>Email:</h4>
-								<p>info@example.com</p>
+								<p>{{tac.email}}</p>
 							</div>
 
 							<div class="phone">
 								<i class="icofont-phone"></i>
 								<h4>Call:</h4>
-								<p>+1 5589 55488 55s</p>
+								<p>{{tac.contact_number}}</p>
 							</div>
 
 						</div>

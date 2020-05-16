@@ -7,15 +7,24 @@ from .services import user
 from django.utils import timezone
 import logging
 import requests
+from django import template
+
 
 from django.template.defaulttags import register
 
 logger = logging.getLogger(__name__)
 
+register = template.Library()
 
 @register.filter
 def get_item(dictionary, key):
-    return dictionary[key]
+  return dictionary[key]
+
+@register.filter
+def split(str, key):
+  str = str.split(key)[0]
+  return str
+
 
 
 User = user()
@@ -31,15 +40,17 @@ def dashboard(request):
     return redirect('/login')
 
   else:
-    logger.info ("python is bewkoof")
     details = request.session['details']
     logger.info (details)
+    print(details)
     print(request.session['name'])
-    messages.success(request,"Signed in as "+request.session['name'])
+    details['bday'] = details['bday'].split("T")[0]
     return render(request, 'dashboard.html', {'user': details})
+    
 
 def login(request):
   if "loggedin" in request.session:
+    messages.success(request,"Signed in as "+request.session['name'])
     return redirect('/dashboard')
 
   else:
@@ -83,3 +94,20 @@ def loginuser(request):
     request.session["details"] = userDetails
     request.session["loggedin"] = True
     return redirect('/dashboard')
+
+@csrf_exempt 
+def dashaction(request):
+  if request.method == "POST":
+    logger.info ("Updating User")
+    logger.info (request.POST.dict)
+    action = request.POST.get("action")
+    print(action)
+    userDetails = User.update(request.POST, action)
+    request.session["name"] = userDetails['name']
+    request.session["details"] = userDetails
+    request.session["loggedin"] = True
+    messages.success(request,"Profile Update")
+    response = {'update': True}
+    return redirect('/dashboard')
+
+

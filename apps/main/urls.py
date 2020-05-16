@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.index, name = 'Home'),
     path('login/', views.login, name = 'Login'),
     path('dashboard/', views.dashboard, name = 'Dashboard'),
+    path('dashaction/', views.dashaction, name = 'Dashboard Actions'),
+
 
     path('user/', views.loginuser, name = 'User'),
     path('admin/', admin.site.urls),

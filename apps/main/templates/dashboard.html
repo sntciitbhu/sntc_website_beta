@@ -86,7 +86,7 @@
           <li class="nav-item nav-profile">
             <div class="nav-link">
               <div class="profile-image">
-                <img class="img-xs rounded-circle" id = "profile-image" alt="profile image">
+                <img class="img-xs rounded-circle" id="profile-image" alt="profile image">
               </div>
               <div class="text-wrapper">
                 <p class="profile-name">{{ user.name }}</p>
@@ -150,13 +150,13 @@
       <div class="main-panel">
         <div class="content-wrapper">
           {% for message in messages %}
-  <div class="alert {{ message.tags }} alert-dismissible role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    {{ message }}
-  </div>
-{% endfor %}
+          <div class="alert {{ message.tags }} alert-dismissible role=" alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+          </div>
+          {% endfor %}
           <div class="tab-content">
             <!-- Main Dashboard Section -->
             <section id="dashboard" class="tab-pane fade active show">
@@ -173,169 +173,226 @@
             <!-- Profile Section -->
             <section id="profile" class="tab-pane fade">
               <div class="row page-title-header">
-                <div class="col-12">
+                <div class="col-9">
                   <div class="page-header">
                     <h4 class="page-title">Profile</h4>
                   </div>
                 </div>
+                <div class="col-3 edit-button-wrapper">
+                  <button class="btn btn-primary btn-fw" id = "edit-profile">Edit</button>
+                  <button class="btn btn-success btn-fw" id = "save-profile" form="profile-form" type ="submit">Save</button>
+                  <button class="btn btn-danger btn-fw" type="reset" form="profile-form" id = "cancel-profile">Cancel</button>
+
+                </div>
               </div>
+              <form id="profile-form"  class="forms-sample" method = "POST" action="/dashaction/">
+                <input type="hidden"  name = "id_token" id="id_token">
+                <input type="hidden"  name = "action" value="updateprofile">
               <div class="row">
-                <div class="col-md-6 d-flex align-items-stretch grid-margin">
-                  <div class="row flex-grow">
-                    <div class="col-12">
-                      <div class="card">
-                        <div class="card-body">
-                          <h4 class="card-title">General Information</h4>
-                          <form>
-                          <fieldset disabled = "disabled" class="forms-sample">
-                            <div class="form-group row">
-                              <label for="name" class="col-sm-3 col-form-label">Name</label>
-                              <div class="col-sm-9">
-                                <input type="name" class="form-control" id="name" placeholder="Enter Name">
+                  <div class="col-md-6 d-flex align-items-stretch grid-margin">
+                    <div class="row flex-grow">
+                      <div class="col-12">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">General Information</h4>
+                            <fieldset disabled="disabled" class="forms-sample">
+                              <div class="form-group row">
+                                <label for="name" class="col-sm-3 col-form-label">Name</label>
+                                <div class="col-sm-9">
+                                  <input type="name" class="form-control" name="name" value="{{user.name}}" placeholder="Enter Name">
+                                </div>
                               </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="email" class="col-sm-3 col-form-label">E-mail</label>
-                              <div class="col-sm-9">
-                                <input disabled type="email" class="form-control" id="email"
-                                  placeholder="E-mail Address">
+                              <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label"  >E-mail</label>
+                                <div class="col-sm-9">
+                                  <input disabled type="email" class="form-control" name="email" value="{{user.email}}" placeholder="E-mail Address">
+                                </div>
                               </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="rollno" class="col-sm-3 col-form-label">Roll Number</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" id="rollno" placeholder="Institute Roll Number">
+                              <div class="form-group row">
+                                <label for="rollno" class="col-sm-3 col-form-label"  >Roll Number</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" name="rollnumber" value={{user.rollnumber}}
+                                    placeholder="Institute Roll Number">
+                                </div>
                               </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="phoneno" class="col-sm-3 col-form-label">Phone Number</label>
-                              <div class="col-sm-9">
-                                <input type="tel" class="form-control" id="phoneno" placeholder="Preferably WhatsApp">
+                              <div class="form-group row">
+                                <label for="phoneno" class="col-sm-3 col-form-label">Phone Number</label>
+                                <div class="col-sm-9">
+                                  <input type="tel" class="form-control" name="phone" placeholder="Preferably WhatsApp" value="{{user.phone}}">
+                                </div>
                               </div>
-                            </div>
-                            <div class="form-group row">
-                              <label for="gender" class="col-sm-3 col-form-label">Gender</label>
-                              <div class="col-sm-9">
-                                <select type="password" class="form-control" id="gender" placeholder="Gender">
-                                  <option>Male</option>
-                                  <option>Female</option>
-                                  <option>Other</option>
-                                </select>
+                              <div class="form-group row">
+                                <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+                                <div class="col-sm-9">
+                                  <select type="password" class="form-control" name="gender" placeholder="Gender" value="{{user.gender}}">
+                                    <option value={{user.gender}} selected disabled hidden>{{user.gender}}</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                  </select>
+                                </div>
                               </div>
-                            </div>
-                            <button type="submit" class="btn btn-success mr-2">Submit</button>
-                            <button class="btn btn-light">Cancel</button>
-                          </fieldset>
-                          </form>
+                            </fieldset>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Academic Details</h4>
-                      <form class="forms-sample">
-                        <p class="card-description " style="text-align: center;"> So that we may redirect the perfect
-                          opportunities to you. </p>
+                  
+                  <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Academic Details</h4>
+                        <fieldset disabled="disabled" class="forms-sample">
+                          <div class="form-group row">
+                            <label for="college" class="col-sm-3 col-form-label">Current College</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="institute" placeholder="recent college" value="{{user.institute}}">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="branch" class="col-sm-3 col-form-label">Branch</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" name="branch" placeholder="Branch" value="{{user.branch}}">
+                                <option value={{user.branch}} selected disabled hidden>{{user.branch}}</option>
+                                <option value="Ceramic Engineering">Ceramic Engineering</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Electronics Engineering">Electronics Engineering</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="Metallurgical Engineering">Metallurgical Engineering</option>
+                                <option value="Mining Engineering">Mining Engineering</option>
+                                <option value="Pharmaceutical Engineering">Pharmaceutical Engineering</option>
+                                <option value="Industrial Chemistry">Industrial Chemistry</option>
+                                <option value="Mathematics and Computing">Mathematics and Computing</option>
+                                <option value="Engineering Physics">Engineering Physics</option>
+                                <option value="Biochemical Engineering">Biochemical Engineering</option>
+                                <option value="Biomedical Engineering">Biomedical Engineering</option>
+                                <option value="Material Science and Technology">Material Science and Technology</option>
+                                <option value="Humanities & Social Sciences Section">Humanities & Social Sciences Section</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="year" class="col-sm-3 col-form-label">Year</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" name="year" placeholder="Current Year" value={{user.year}}>
+                                <option value="{{user.year}}" selected disabled hidden>{{user.year}}</option>
 
-                        <div class="form-group row">
-                          <label for="college" class="col-sm-3 col-form-label">Current College</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="college" placeholder=""
-                              value="Indian Institute of Technology BHU Varanasi">
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                                <option value="5">5th Year</option>
+                                <option value="Higher">Higher</option>
+                                <option value="Pass Out">Pass Out</option>
+                              </select>                                
+                            </div>
                           </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="branch" class="col-sm-3 col-form-label">Branch</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" id="branch" placeholder="">
-                              <option>Electrical</option>
-                              <option>Electronics</option>
-                              <option>Other</option>
-                            </select>section
+                          <div class="form-group row">
+                            <label for="course" class="col-sm-3 col-form-label">Course</label>
+                            <div class="col-sm-9">
+
+                              <select class="form-control" name="course" placeholder="Course"value={{user.course}}>
+                                <option value="{{user.course}}" selected disabled hidden>{{user.course}}</option>
+
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="M.Tech">M.Tech</option>
+                                <option value="Ph.D">Ph.D</option>
+                                <option value="Other">Other</option>
+                              </select>
+                            </div>
                           </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="year" class="col-sm-3 col-form-label">Year</label>
-                          <div class="col-sm-9">
-                            <input type="number" class="form-control" id="year" placeholder="Your current year of Study"
-                              min="1" max="10">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="course" class="col-sm-3 col-form-label">Course</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" id="course" placeholder="current course">
-                              <option>Mtech</option>
-                              <option>Btech</option>
-                              <option>Phd</option>
-                            </select>
-                          </div>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                      </form>
+                        </fieldset>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Interests and Skills</h4>
-                      <form class="forms-sample">
-                        <div class="form-group row">
-                          <label for="skills" class="col-sm-3 col-form-label">Skills</label>
-                          <div class="col-sm-9">
-                            <textarea class="form-control" id="skills" placeholder="Enter your relevant skills here"
-                              rows=4></textarea>
+                  <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Interests and Skills</h4>
+                        <fieldset disabled="disabled" class="forms-sample">
+                          <div class="form-group row">
+                            <label for="skills" class="col-sm-3 col-form-label">Skills</label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" name="skills" placeholder="Enter your relevant skills here"
+                                rows=4 value="{{user.skills}}">{{user.skills}}</textarea>
+                            </div>
                           </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="interests" class="col-sm-3 col-form-label">Interests</label>
-                          <div class="col-sm-9">
-                            <textarea class="form-control" id="interests"
-                              placeholder="Enter your relevant Interests here" rows=4></textarea>
+                          <div class="form-group row">
+                            <label for="interests" class="col-sm-3 col-form-label">Interests</label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" name="interests"
+                                placeholder="Enter your relevant Interests here" rows=4 value="{{user.interests}}">{{user.interests}}</textarea>
+                            </div>
                           </div>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                      </form>
+                        </fieldset>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Other Details</h4>
-                      <form class="forms-sample">
-                        <div class="form-group row">
-                          <label for="city" class="col-sm-3 col-form-label">Current City</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="city" placeholder="" value="Varanasi">
+                  <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Other Details</h4>
+                        <fieldset disabled="disabled" class="forms-sample">
+                          <div class="form-group row">
+                            <label for="bday" class="col-sm-3 col-form-label">Birthday</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" type="date" name="bday"value="{{user.bday}}" placeholder="we'd love to wish you.">
+                            </div>
                           </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="bday" class="col-sm-3 col-form-label">Birthdate</label>
-                          <div class="col-sm-9">
-                            <input class="form-control" type="date" id="bday" placeholder="we'd love to wish you.">
+                          <div class="form-group row">
+                            <label for="avatar" class="col-sm-3 col-form-label">Superhero</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="superhero" value="{{user.superhero}}" placeholder="Your Favourite Superhero">
+                            </div>
                           </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="avatar" class="col-sm-3 col-form-label">Superhero</label>
-                          <div class="col-sm-9">
-                            <input type="number" class="form-control" id="avatar" placeholder="Your Favourite Superhero"
-                              min="1" max="10">
+                          <input type="hidden" id="sub_clubs" name = "sub_clubs">
+
+                          <div class="form-group row">
+                            <label for="avatar" class="col-sm-3 col-form-label">Subscribed Clubs</label>
+                            <div class="col-md-9">
+                              <div class="form-group" id = "sub-clubs-checkbox">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "aero" {% if "aero" in user.sub_clubs%}checked{%endif%}> Aero-Modelling Club </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "astro" {% if "astro" in user.sub_clubs%}checked{%endif%}> Astronomy Club </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "biz"{% if "biz" in user.sub_clubs%}checked{%endif%}> Business Club </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "csi" {% if "csi" in user.sub_clubs%}checked{%endif%}> Club of Sustainability and Innovation </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "cops" {% if "cops" in user.sub_clubs%}checked{%endif%}> Club of Programmers </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "robo" {% if "robo" in user.sub_clubs%}checked{%endif%}> Robotics Club </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name = "clubs" value = "sae" {% if "sae" in user.sub_clubs%}checked{%endif%}> Society of Automotive Engineers </label>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                      </form>
+                        </fieldset>
+                      </div>
                     </div>
                   </div>
-                </div>
               </div>
+            </form>
+
             </section>
             <!-- End Profile Section -->
 
