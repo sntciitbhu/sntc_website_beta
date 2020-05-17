@@ -13,15 +13,18 @@ gd_storage = GoogleDriveStorage()
 
 
 def modify (image, size_x, size_y, file_type, img_name):
-    im=Image.open(image)
-    size = size_x,size_y
-    im.thumbnail(size)
-    im_io=BytesIO()
-    if (file_type == "JPEG"):
-        im= im.convert('RGB')
-    im.save(im_io, file_type, quality=60)
-    new_image = File(im_io,name=img_name+image.name)
-    return new_image
+	try:
+		im=Image.open(image)
+		size = size_x,size_y
+		im.thumbnail(size)
+		im_io=BytesIO()
+		if (file_type == "JPEG"):
+			im= im.convert('RGB')
+		im.save(im_io, file_type, quality=60)
+		new_image = File(im_io,name=img_name+image.name)
+		return new_image
+	except:
+		return image
 
 # Create your models here.
 
