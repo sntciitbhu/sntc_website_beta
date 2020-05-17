@@ -40,6 +40,9 @@ DEBUG_PROPAGATE_EXCEPTIONS = False
 ALLOWED_HOSTS = ['*']
 
 
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'sntc_website/credentials.json'
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'https://drive.google.com/drive/u/1/folders/1IqBdsQgo7MvsdqgEKsNKgLSna7e89vQW' # OPTIONAL
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gdstorage',
     'tinymce',
     'rest_framework',
     'nested_admin'

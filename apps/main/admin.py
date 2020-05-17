@@ -20,6 +20,8 @@ class MyAdminSite(admin.AdminSite):
         urls = super().get_urls()
         new_urls = [
             path('students/',self.admin_view(self.student_view)),
+            path('messages/',self.admin_view(self.messages_view)),
+
         ]
         return new_urls + urls
         print("geturls")
@@ -61,6 +63,47 @@ class MyAdminSite(admin.AdminSite):
             heads = heads,
         )
         return TemplateResponse(request, "admin/student.html", context)
+
+
+    def messages_view(self,request):
+        heads, vals = adminUser.allStudents()
+
+        if(request.method == "GET"):
+            if 'action' in request.GET:
+                do = request.GET["action"]
+                if do=="sort":
+                    sortby = request.GET["sortby"]
+                    i = heads.index(sortby)
+                    print(i)
+                    vals = sorted(vals, key=lambda x: x[i])
+
+                elif do=="download":
+                    sortby = request.GET["sortby"]
+                    i = heads.index(sortby)
+                    vals = sorted(vals, key=lambda x: x[i])
+
+                    response = HttpResponse(content_type='text/csv')
+                    response['Content-Disposition'] = 'attachment; filename="students.csv"'
+                    writer = csv.writer(response)
+                    writer.writerow(heads)
+                    writer.writerows(vals)
+                    return response
+
+                else:
+                    vals = sorted(vals, key=lambda x: x[0])
+            else:
+                vals = sorted(vals, key=lambda x: x[0])
+
+                
+
+        context = dict(
+            self.each_context(request),
+            data = vals,
+            heads = heads,
+        )
+        return TemplateResponse(request, "admin/student.html", context)
+
+    
 
 admin.site = MyAdminSite(name = "admin")
 admin.site.site_header = 'Office Bearer Portal'

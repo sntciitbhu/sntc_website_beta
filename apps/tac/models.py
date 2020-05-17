@@ -8,6 +8,9 @@ from io import BytesIO
 from PIL import Image
 from django.core.files import File
 
+from gdstorage.storage import GoogleDriveStorage
+gd_storage = GoogleDriveStorage()
+
 
 def modify (image, size_x, size_y, file_type, img_name):
     im=Image.open(image)
@@ -26,8 +29,8 @@ class tac_detail(models.Model):
 	name = models.CharField(max_length=50, default = None)
 	about_tac = models.TextField()
 	tagline = models.CharField(max_length=100, default = None)
-	logo = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 1:1 for best restuls", default = None)
-	logo_black = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 2:1 for best restuls", default = None)
+	logo = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 1:1 for best results", default = None)
+	logo_black = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 2:1 for best results", default = None)
 
 	facebook = models.URLField(max_length=500, default= None, blank=True)
 	twitter = models.URLField(max_length=500, default= None, blank=True) 
@@ -43,14 +46,14 @@ class tac_detail(models.Model):
 
 	guidelines = models.TextField(default=None)
 	about_facilites = models.TextField(default=None)
-	inventory_bg_image = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 4:3 for best restuls", default = None)
+	inventory_bg_image = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 4:3 for best results", default = None)
 
 
 	project_content = models.TextField()
-	project_image = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 3:4 for best restuls", default = None)
+	project_image = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 3:4 for best results", default = None)
 
 	bigbook_content = models.TextField()
-	bigbook_bg_image = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 4:3 for best restuls", default = None)
+	bigbook_bg_image = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 4:3 for best results", default = None)
 	technical_teams_content = models.TextField()
 
 	def save(self, *args, **kwargs):
@@ -70,7 +73,7 @@ class tac_detail(models.Model):
 
       
 class tac_image(models.Model):
-	photo = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 4:3 for best restuls", default = None)
+	photo = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 4:3 for best results", default = None)
 
 	def save(self, *args, **kwargs):
 
@@ -119,7 +122,7 @@ class project_category(models.Model):
 class project(models.Model):
 	name = models.CharField(max_length=50, default = None)
 	category = models.OneToOneField(project_category,on_delete=models.SET_NULL,null=True)
-	image = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 4:3 for best restuls", default = None)
+	image = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 4:3 for best results", default = None)
 	details = models.TextField()
 
 	def save(self, *args, **kwargs):
@@ -150,10 +153,10 @@ class project_student(models.Model):
 class team(models.Model):
 	
 	name = models.CharField(max_length=50, default = None)
-	image = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 4:3 for best restuls", default = None)
+	image = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 4:3 for best results", default = None)
 	details = models.TextField()
 	competetion_aim = models.CharField(max_length=50, default = None)
-	team_photo = models.ImageField(upload_to='img/', help_text = "Aspect Ratio 4:3W for best restuls", default = None)
+	team_photo = models.ImageField(upload_to='img',  storage=gd_storage , help_text = "Aspect Ratio 4:3W for best results", default = None)
 
 	def save(self, *args, **kwargs):
 

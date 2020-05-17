@@ -1,9 +1,13 @@
 {% extends "admin:admin/index.html" %}
 
+
+
 {% block sidebar %}
-    {{block.super}}
-    <script>
-        document.getElementById("content-related").innerHTML =
-        " <div class='module'><h2>Users</h2><a href='/admin/students'><h3>Registered Users</h3></a></div>"
-    </script>
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>Other Options</h2>
+        <a href='/admin/students'><h3>Registered Users</h3></a>
+        <a href='/admin/messages'><h3>Registered Users</h3></a>
+    </div>
+</div>
 {% endblock %}
